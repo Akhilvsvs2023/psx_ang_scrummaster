@@ -1,11 +1,14 @@
 export interface IUser{
-    empid:string;
-    username:string,
-    password:string,
+    userId:string,
+    password:string;
+    empId:string;
     firstName:string,
     lastName:string,
-    designation:string,
-    reporting:string,
-    email:string,
-    createdOn?:Date
+    departmentName:string,
+    role:string,
+    emailId:string,
+    reportingTo:string,
+    createdOn:Date,
+    approvedOn?:Date,
+    active:String
 }

@@ -19,32 +19,35 @@ export class CreateUserComponent {
 
   ngOnInit(): void {
     this.formGroup = this.formBuilder.group({
-      'firstName'   : ['',Validators.required],
-      'lastName'    : ['',Validators.required],
-      'designation' : ['',Validators.required],
-      'reporting'   : ['',[Validators.required,Validators.pattern('^ptpl-\\d+$')]],
-      'emailID'     : ['',[Validators.required,Validators.email]],
-      'empid'       : ['',[Validators.required,Validators.pattern('^ptpl-\\d+$')]],
-      'username'    : ['',Validators.required],
-      'password'    : ['',Validators.required],      
+      'firstName'     : ['',Validators.required],
+      'lastName'      : ['',Validators.required],
+      'departmentName': ['',Validators.required],
+      'role'          : ['',Validators.required],
+      'reportingTo'   : ['',[Validators.required,Validators.pattern('^ptpl-\\d+$')]],
+      'emailId'       : ['',[Validators.required,Validators.email]],
+      'empId'         : ['',[Validators.required,Validators.pattern('^ptpl-\\d+$')]],
+      'userId'        : ['',Validators.required],
+      'password'      : ['',Validators.required],      
     });
   }
 
   onSubmit(formValue:any){
     console.log(formValue);
     var a:IUser={
+      userId:formValue.userId,
+      password:formValue.password,
+      empId:formValue.empId,
       firstName:formValue.firstName,
       lastName:formValue.lastName,
-      empid:formValue.empid,
-      reporting:formValue.reporting,
-      designation:formValue.designation,
-      email:formValue.emailID,
-      username:formValue.username,
-      password:formValue.password,
-      createdOn:new Date()
+      departmentName:formValue.departmentName,
+      role:formValue.role,
+      emailId:formValue.emailId,
+      reportingTo:formValue.reportingTo,
+      createdOn:new Date(),
+      active:'N'
     };
     this.service.addUser(a).subscribe(
-      response=>{console.log(response,"Added user successfully")},
+      response=>{console.log(response)},
       error=>{console.log(error)}
     );
   }

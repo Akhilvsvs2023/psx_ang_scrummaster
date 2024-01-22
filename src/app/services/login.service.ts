@@ -2,6 +2,7 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { ILogin } from '../model/login.model';
+import { IUser } from '../model/user.model';
 
 @Injectable({
   providedIn: 'root'
@@ -20,9 +21,9 @@ export class LoginService {
     this.loggedIn=value;
   }
   validateLogin(loginDetails:any):Observable<any>{
-    return this.http.post<any>('http://localhost:8080/login',loginDetails);
+    return this.http.post<any>('http://localhost:8080/login/validateLogin',loginDetails);
   }
-  addUser(userDetails:any):Observable<any>{
-    return this.http.post<any>('http://localhost:8080/addUser',userDetails);
+  addUser(userDetails:IUser):Observable<any>{
+    return this.http.post<any>('http://localhost:8080/login/createUser',userDetails);
   }
 }
