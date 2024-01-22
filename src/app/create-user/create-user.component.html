@@ -1,0 +1,92 @@
+<div class="container bg-light border border-dark-subtle form-container shadow-lg rounded position-fixed m-5 w-50">
+    <div class="row text-center my-3">
+        <h1 class="display-4">Create User</h1>
+    </div>
+    <div class="container bg-light shadow-sm rounded form-group w-75 p-2 my-3">
+        <form [formGroup]="formGroup" (ngSubmit)="onSubmit(formGroup.value)">
+            <div class="row my-2">
+                <div class="col-sm-6">
+                    <label class="form-label" for="firstName">First Name</label>
+                    <input type="text" class="form-control" id="firstName" formControlName="firstName" required [ngClass]="{'is-invalid' : formGroup.controls.firstName.touched && formGroup.controls.firstName.errors}"
+                    >
+                    <div class="invalid-feedback" *ngIf="formGroup.controls.firstName.touched">
+                        <p>Please enter First Name</p>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <label for="lastName" class="form-label">Last Name</label>
+                    <input type="text" class="form-control" id="lastName" formControlName="lastName" required [ngClass]="{'is-invalid' : formGroup.controls.lastName.touched && formGroup.controls.lastName.errors}">
+                    <div class="invalid-feedback" *ngIf="formGroup.controls.lastName.touched && formGroup.controls.lastName.errors">
+                        <p>Please enter Last Name</p>
+                    </div>
+                </div>
+            </div>
+            <div class="row my-2">
+                <div class="col-sm-6">
+                    <label for="designation" class="form-label" class="form-label">Designation</label>
+                    <select name="designation" class="form-control"  id="designation" formControlName="designation" placeholder="---select role---" required [ngClass]="{'is-invalid' : formGroup.controls.designation.touched && formGroup.controls.designation.errors}">
+                        <option value="Project Manager">Project Manager</option>
+                        <option value="Senior Software Engineer">Senior Software Engineer</option>
+                        <option value="Software Engineer">Software Engineer</option>
+                        <option value="Associate Software Engineer">Associate Software Engineer</option>
+                        <option value="Trainee">Trainee</option>
+                    </select>
+                    <div class="invalid-feedback" *ngIf="formGroup.controls.designation.touched && formGroup.controls.designation.errors">
+                        <p>Please select designation</p>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <label for="reporting" class="form-label">Reporting to</label>
+                    <input type="text" class="form-control" id="reporting" formControlName="reporting" required [ngClass]="{'is-invalid' : formGroup.controls.reporting.touched && formGroup.controls.reporting.errors}">
+                    <div class="invalid-feedback" *ngIf="formGroup.controls.reporting.touched && formGroup.controls.reporting.errors">
+                        <p *ngIf="formGroup.controls.reporting.errors.required">Please enter ID of your manager</p>
+                        <p *ngIf="formGroup.controls.reporting.errors.pattern">Invalid ID</p>
+                    </div>
+                </div>
+            </div>
+            <div class="row my-2">
+                <div class="col-sm-8">
+                    <label for="emailID" class="form-label">Email</label>
+                    <input type="email" class="form-control" id="emailID" formControlName="emailID" required [ngClass]="{'is-invalid' : formGroup.controls.emailID.touched && formGroup.controls.emailID.errors}" >
+                    <div class="invalid-feedback" *ngIf="formGroup.controls.emailID.touched && formGroup.controls.emailID.errors">
+                        <p *ngIf="formGroup.controls.emailID.errors.required">Please enter email</p>
+                        <p *ngIf="formGroup.controls.emailID.errors.email">Invalid email</p>
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <label for="empid" class="form-label">Emp ID</label>
+                    <input type="text" class="form-control" id="empid" formControlName="empid" required [ngClass]="{'is-invalid' : formGroup.controls.empid.touched && formGroup.controls.empid.errors}" >
+                    <div class="invalid-feedback" *ngIf="formGroup.controls.empid.touched && formGroup.controls.empid.errors">
+                        <p *ngIf="formGroup.controls.empid.errors.required">Please enter ID of your manager</p>
+                        <p *ngIf="formGroup.controls.empid.errors.pattern">Invalid ID</p>
+                    </div>
+                </div>
+            </div>
+            <div class="row my-2">
+                <div class="col-sm-6">
+                    <label for="username" class="form-label">Username</label>
+                    <input type="text" class="form-control" id="username" formControlName="username" required [ngClass]="{'is-invalid' : formGroup.controls.username.touched && formGroup.controls.username.errors}" >
+                    <div class="invalid-feedback" *ngIf="formGroup.controls.username.touched && formGroup.controls.username.errors">
+                        <p>Please enter username</p>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <label for="password" class="form-label">Password</label>
+                    <input type="password" class="form-control" id="password" formControlName="password" required [ngClass]="{'is-invalid' : formGroup.controls.password.touched && formGroup.controls.password.errors}" >
+                    <div class="invalid-feedback" *ngIf="formGroup.controls.password.touched && formGroup.controls.password.errors">
+                        <p>Please enter password</p>
+                    </div>
+                </div>
+            </div>
+            <div class="row justify-content-center my-3">
+                <div class="col-sm-2 text-center">
+                    <button class="btn btn-primary" [disabled]="!formGroup.valid">Create</button>
+                </div>
+            </div>
+            <hr>
+            <div class="row text-center my-2">
+                <a routerLink="/login" style="text-decoration: none;"> Go to login </a>
+            </div>
+        </form>
+    </div>
+</div>
