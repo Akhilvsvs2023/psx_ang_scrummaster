@@ -1,7 +1,10 @@
 :host {
     display: block;
     background-image: url('src/assets/bg.jpg'); 
-    background-size: cover; 
+    background-size: auto; 
     background-position: center;
-    background-repeat: no-repeat;
-}
+    background-repeat: repeat;
+  }
+  .position-fixed {
+    right: 0; 
+  }

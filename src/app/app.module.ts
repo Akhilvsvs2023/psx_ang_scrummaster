@@ -31,6 +31,7 @@ import { CreateTaskComponent } from './home/create-task/create-task.component';
 import { TaskListComponent } from './home/task-list/task-list.component';
 import { StatisticsComponent } from './home/statistics/statistics.component';
 import { WebsiteOverviewComponent } from './login/website-overview/website-overview.component';
+import { CreateUserformComponent } from './create-user/create-userform/create-userform.component';
 
 @NgModule({
   declarations: [
@@ -45,6 +46,7 @@ import { WebsiteOverviewComponent } from './login/website-overview/website-overv
     TaskListComponent,
     StatisticsComponent,
     WebsiteOverviewComponent,
+    CreateUserformComponent,
   ],
   imports: [
     NgbModule,
