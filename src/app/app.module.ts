@@ -32,6 +32,8 @@ import { TaskListComponent } from './home/task-list/task-list.component';
 import { StatisticsComponent } from './home/statistics/statistics.component';
 import { WebsiteOverviewComponent } from './login/website-overview/website-overview.component';
 import { CreateUserformComponent } from './create-user/create-userform/create-userform.component';
+import { ToastrModule } from 'ngx-toastr';
+
 
 @NgModule({
   declarations: [
@@ -56,6 +58,7 @@ import { CreateUserformComponent } from './create-user/create-userform/create-us
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
+    ToastrModule.forRoot(),
     MatIconModule,
     MatFormFieldModule,
     MatToolbarModule,

@@ -1,7 +1,9 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { IUser } from 'src/app/model/user.model';
 import { LoginService } from 'src/app/services/login.service';
+import { ToasterService } from 'src/app/services/toaster.service';
 
 @Component({
   selector: 'app-create-userform',
@@ -13,7 +15,7 @@ export class CreateUserformComponent {
   post: any = '';
   hidePassword = true;
 
-  constructor(private formBuilder : FormBuilder,private service:LoginService){
+  constructor(private formBuilder : FormBuilder,private service:LoginService,private router:Router,private toaster:ToasterService){
     
   }
 
@@ -49,8 +51,26 @@ export class CreateUserformComponent {
       gender:formValue.gender
     };
     this.service.addUser(a).subscribe(
-      (response)=>{console.log(response)},
-      (error)=>{console.log(error)}
+      (response)=>{
+        console.log(response);
+        if(response.statusCode===200){
+          this.formGroup.reset();
+          this.toaster.callSuccessToaster('SUCCESS','User added successfully');
+        }
+        else if(response.statusCode===410){
+          this.toaster.callWarningToaster('WARN','UserName already exists');
+        }
+        else if(response.statusCode===420){
+          this.toaster.callWarningToaster('WARN','Empid already exists');
+        }
+        else{
+          this.toaster.callErrorToaster('ERROR','Internal Server Error');
+        }
+      },
+      (error)=>{
+        console.log(error);
+        this.toaster.callErrorToaster('ERROR','Internal Server Error');
+      }
     );
   }
 }
