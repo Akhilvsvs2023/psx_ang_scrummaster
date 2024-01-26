@@ -33,6 +33,7 @@ import { StatisticsComponent } from './home/statistics/statistics.component';
 import { WebsiteOverviewComponent } from './login/website-overview/website-overview.component';
 import { CreateUserformComponent } from './create-user/create-userform/create-userform.component';
 import { ToastrModule } from 'ngx-toastr';
+import { TokenGuard } from './services/tokenGaurd.service';
 
 
 @NgModule({
@@ -58,7 +59,7 @@ import { ToastrModule } from 'ngx-toastr';
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    ToastrModule.forRoot(),
+    ToastrModule.forRoot({timeOut: 3000,progressBar:true,maxOpened:3,autoDismiss:true}),
     MatIconModule,
     MatFormFieldModule,
     MatToolbarModule,
@@ -75,7 +76,7 @@ import { ToastrModule } from 'ngx-toastr';
     MatSortModule,
     HttpClientModule,
   ],
-  providers: [],
+  providers: [TokenGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
