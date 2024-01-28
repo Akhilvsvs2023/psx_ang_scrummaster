@@ -28,7 +28,7 @@ export class CreateUserformComponent {
       'reportingTo'   : ['',[Validators.required,Validators.pattern('^ptpl-\\d+$')]],
       'emailId'       : ['',[Validators.required,Validators.email]],
       'empId'         : ['',[Validators.required,Validators.pattern('^ptpl-\\d+$')]],
-      'userId'        : ['',Validators.required],
+      'username'      : ['',Validators.required],
       'password'      : ['',Validators.required],
       'gender'        : ['',Validators.required] 
     });
@@ -37,7 +37,7 @@ export class CreateUserformComponent {
   onSubmit(formValue:any){
     console.log(formValue);
     var a:IUser={
-      userId:formValue.userId,
+      username:formValue.username,
       password:formValue.password,
       empId:formValue.empId,
       firstName:formValue.firstName,
@@ -47,7 +47,8 @@ export class CreateUserformComponent {
       emailId:formValue.emailId,
       reportingTo:formValue.reportingTo,
       createdOn:new Date(),
-      active:'N',
+      active:(formValue.role==='Project Manager')?'Y':'N',
+      approvedOn:(formValue.role==='Project Manager')?new Date():null,
       gender:formValue.gender
     };
     this.service.addUser(a).subscribe(

@@ -7,4 +7,11 @@ import { Component } from '@angular/core';
 })
 export class NavbarComponent {
 
+  currentDate!: Date;
+
+  constructor(){
+    setInterval(() => {
+      this.currentDate = new Date();
+    }, 1);
+  }
 }

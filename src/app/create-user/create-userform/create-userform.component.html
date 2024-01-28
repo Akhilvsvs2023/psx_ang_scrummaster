@@ -22,7 +22,15 @@
                 </div>
             </div>
             <div class="row my-2">
-                <div class="col-sm-6">
+                <div class="col-sm-7">
+                    <label for="emailId" class="form-label">Email</label>
+                    <input type="email" class="form-control" id="emailId" formControlName="emailId" required [ngClass]="{'is-invalid' : formGroup.controls.emailId.touched && formGroup.controls.emailId.errors}" >
+                    <div class="invalid-feedback" *ngIf="formGroup.controls.emailId.touched && formGroup.controls.emailId.errors">
+                        <p *ngIf="formGroup.controls.emailId.errors.required">Please enter email</p>
+                        <p *ngIf="formGroup.controls.emailId.errors.email">Invalid email</p>
+                    </div>                   
+                </div>
+                <div class="col-sm-5">
                     <label for="departmentName" class="form-label" class="form-label">Department Name</label>
                     <select name="departmentName" class="form-control"  id="departmentName" formControlName="departmentName" placeholder="---select department---" required [ngClass]="{'is-invalid' : formGroup.controls.departmentName.touched && formGroup.controls.departmentName.errors}">
                         <option value="Product">Product</option>
@@ -34,19 +42,11 @@
                     </select>
                     <div class="invalid-feedback" *ngIf="formGroup.controls.departmentName.touched && formGroup.controls.departmentName.errors">
                         <p>Please select department</p>
-                    </div>                    
-                </div>
-                <div class="col-sm-6">
-                    <label for="reportingTo" class="form-label">Reporting to</label>
-                    <input type="text" class="form-control" id="reportingTo" formControlName="reportingTo" required [ngClass]="{'is-invalid' : formGroup.controls.reportingTo.touched && formGroup.controls.reportingTo.errors}">
-                    <div class="invalid-feedback" *ngIf="formGroup.controls.reportingTo.touched && formGroup.controls.reportingTo.errors">
-                        <p *ngIf="formGroup.controls.reportingTo.errors.required">Please enter ID of your manager</p>
-                        <p *ngIf="formGroup.controls.reportingTo.errors.pattern">Invalid ID</p>
-                    </div>
+                    </div> 
                 </div>
             </div>
             <div class="row my-2">
-                <div class="col-sm-8">
+                <div class="col-sm-7">
                     <label for="role" class="form-label" class="form-label">Role</label>
                     <select name="role" class="form-control"  id="role" formControlName="role" placeholder="---select role---" required [ngClass]="{'is-invalid' : formGroup.controls.role.touched && formGroup.controls.role.errors}">
                         <option value="Project Manager">Project Manager</option>
@@ -59,7 +59,7 @@
                         <p>Please select role</p>
                     </div>
                 </div>
-                <div class="col-sm-4">
+                <div class="col-sm-5">
                     <label for="gender" class="form-label" class="form-label">Gender</label>
                     <select name="gender" class="form-control"  id="gender" formControlName="gender" placeholder="---select gender---" required [ngClass]="{'is-invalid' : formGroup.controls.gender.touched && formGroup.controls.gender.errors}">
                         <option value="Male">Male</option>
@@ -72,15 +72,7 @@
                 </div>
             </div>
             <div class="row my-2">
-                <div class="col-sm-8">
-                    <label for="emailId" class="form-label">Email</label>
-                    <input type="email" class="form-control" id="emailId" formControlName="emailId" required [ngClass]="{'is-invalid' : formGroup.controls.emailId.touched && formGroup.controls.emailId.errors}" >
-                    <div class="invalid-feedback" *ngIf="formGroup.controls.emailId.touched && formGroup.controls.emailId.errors">
-                        <p *ngIf="formGroup.controls.emailId.errors.required">Please enter email</p>
-                        <p *ngIf="formGroup.controls.emailId.errors.email">Invalid email</p>
-                    </div>
-                </div>
-                <div class="col-sm-4">
+                <div class="col-sm-6">
                     <label for="empId" class="form-label">Emp ID</label>
                     <input type="text" class="form-control" id="empId" formControlName="empId" required [ngClass]="{'is-invalid' : formGroup.controls.empId.touched && formGroup.controls.empId.errors}" >
                     <div class="invalid-feedback" *ngIf="formGroup.controls.empId.touched && formGroup.controls.empId.errors">
@@ -88,13 +80,21 @@
                         <p *ngIf="formGroup.controls.empId.errors.pattern">Invalid ID</p>
                     </div>
                 </div>
+                <div class="col-sm-6">
+                    <label for="reportingTo" class="form-label">Reporting to</label>
+                    <input type="text" class="form-control" id="reportingTo" formControlName="reportingTo" required [ngClass]="{'is-invalid' : formGroup.controls.reportingTo.touched && formGroup.controls.reportingTo.errors} ">
+                    <div class="invalid-feedback" *ngIf="formGroup.controls.reportingTo.touched && formGroup.controls.reportingTo.errors">
+                        <p *ngIf="formGroup.controls.reportingTo.errors.required">Please enter ID of your manager</p>
+                        <p *ngIf="formGroup.controls.reportingTo.errors.pattern">Invalid ID</p>
+                    </div>  
+                </div>
             </div>
             <div class="row my-2">
                 <div class="col-sm-6">
-                    <label for="userId" class="form-label">Username</label>
-                    <input type="text" class="form-control" id="userId" formControlName="userId" required [ngClass]="{'is-invalid' : formGroup.controls.userId.touched && formGroup.controls.userId.errors}" >
-                    <div class="invalid-feedback" *ngIf="formGroup.controls.userId.touched && formGroup.controls.userId.errors">
-                        <p>Please enter user Id</p>
+                    <label for="username" class="form-label">Username</label>
+                    <input type="text" class="form-control" id="username" formControlName="username" required [ngClass]="{'is-invalid' : formGroup.controls.username.touched && formGroup.controls.username.errors}" >
+                    <div class="invalid-feedback" *ngIf="formGroup.controls.username.touched && formGroup.controls.username.errors">
+                        <p>Please enter username</p>
                     </div>
                 </div>
                 <div class="col-sm-6">
