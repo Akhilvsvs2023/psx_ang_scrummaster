@@ -9,7 +9,7 @@ import { Observable } from 'rxjs';
 export class TokenGuard implements CanActivate,CanActivateChild{
   constructor(private router: Router) {}
   canActivateChild(): boolean  {
-    const token = localStorage.getItem('token');
+    const token = window.sessionStorage.getItem('token');
     if (token) {
       return true;
     } else {
@@ -19,7 +19,7 @@ export class TokenGuard implements CanActivate,CanActivateChild{
   }
 
   canActivate(): boolean {
-    const token = localStorage.getItem('token');
+    const token = window.sessionStorage.getItem('token');
     if (token) {
       return true;
     } else {

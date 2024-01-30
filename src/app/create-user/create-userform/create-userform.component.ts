@@ -57,14 +57,13 @@ export class CreateUserformComponent {
         if(response.statusCode===200){
           this.formGroup.reset();
           this.toaster.callSuccessToaster('SUCCESS','User added successfully');
-        }
-        else if(response.statusCode===410){
+        }else if(response.statusCode===410){
           this.toaster.callWarningToaster('WARN','UserName already exists');
-        }
-        else if(response.statusCode===420){
+        }else if(response.statusCode===420){
           this.toaster.callWarningToaster('WARN','Empid already exists');
-        }
-        else{
+        }else if(response.statusCode===450){
+          this.toaster.callWarningToaster('WARN','Reporting id doesn\'t exists');
+        }else{
           this.toaster.callErrorToaster('ERROR','Internal Server Error');
         }
       },

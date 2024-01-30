@@ -32,7 +32,7 @@ export class LoginFormComponent implements OnInit {
       console.log(response);
       if(response.statusCode===200){
         this.formGroup.reset();
-        localStorage.setItem('token',response.jwtToken);
+        window.sessionStorage.setItem('token',response.jwtToken);
         this.router.navigate(['/']);
         this.toaster.callSuccessToaster('SUCCESS','Logged successfully');
       }

@@ -1,4 +1,4 @@
-<nav class="navbar nav-underline navbar-expand-lg navbar-dark bg-dark" >
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark" >
   <div class="container-fluid">
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <a class="navbar-brand mt-2 mt-lg-0 px-2" routerLink="/">
@@ -13,15 +13,18 @@
         </li>
         <li class="nav-item">
           <a class="nav-link" routerLink="/statistics">Completed</a>
-        </li>        
-      </ul>
+        </li>    
+      </ul>      
+    </div>
+    <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
       <ul class="nav justify-content-end mb-1 mb-lg-0 px-2">
         <li class="nav-item">
-            <a class="nav-link" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample">
-              <img src="assets/account.png" height="40px" alt="">
-            </a>
+          <a style="text-decoration: none;color: darkgray;" class="nav-link">{{currentDate |  date : "dd MMM,yyyy hh:mm:ss" }}</a>
         </li>
       </ul>
+      <a class="nav-link" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample">
+        <img src="assets/profile.png" height="40px" alt="">
+      </a>
     </div>       
   </div>  
 </nav>
