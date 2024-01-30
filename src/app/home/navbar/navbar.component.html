@@ -1,30 +1,51 @@
-<!-- Navbar -->
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <!-- Container wrapper -->
-    <div class="container-fluid">
-      <!-- Collapsible wrapper -->
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <!-- Navbar brand -->
-        <a class="navbar-brand mt-2 mt-lg-0" routerLink="/">
-          <img src="https://iconape.com/wp-content/files/qs/343568/png/343568.png" height="50" alt="PSX Logo" loading="lazy" />
-        </a>
-        <!-- Left links -->
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-          <li class="nav-item">
-            <a class="nav-link" routerLink="/createTask">ToDo</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" routerLink="/taskList">Tasks</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" routerLink="/statistics">Completed</a>
-          </li>
-        </ul>
-        <!-- Left links -->
-        <p class="navbar-nav nav-link mb-2 mb-lg-0 ">{{currentDate | date:'medium'}}</p>
-      </div>
-      <!-- Collapsible wrapper -->
+<nav class="navbar nav-underline navbar-expand-lg navbar-dark bg-dark" >
+  <div class="container-fluid">
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <a class="navbar-brand mt-2 mt-lg-0 px-2" routerLink="/">
+        <img src="assets/logo.png" height="50" alt="PSX Logo" loading="lazy" />
+      </a>
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/createTask">ToDo</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/taskList">Tasks</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/statistics">Completed</a>
+        </li>        
+      </ul>
+      <ul class="nav justify-content-end mb-1 mb-lg-0 px-2">
+        <li class="nav-item">
+            <a class="nav-link" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample">
+              <img src="assets/account.png" height="40px" alt="">
+            </a>
+        </li>
+      </ul>
+    </div>       
+  </div>  
+</nav>
+<div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
+  <div class="offcanvas-header">
+    <h1 class="offcanvas-title" id="offcanvasExampleLabel">Welcome </h1>
+    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+  </div>
+  <div class="offcanvas-body">
+    <div class="dropdown mt-3">
+      <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown">
+        Dropdown button
+      </button>
+      <ul class="dropdown-menu">
+        <li><a class="dropdown-item" href="#">Action</a></li>
+        <li><a class="dropdown-item" href="#">Another action</a></li>
+        <li><a class="dropdown-item" href="#">Something else here</a></li>
+      </ul>
+      <hr>
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/statistics">Completed</a>
+        </li>
+      </ul>
     </div>
-    <!-- Container wrapper -->
-  </nav>
-  <!-- Navbar -->
+  </div>
+</div>
