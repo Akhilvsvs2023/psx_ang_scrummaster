@@ -33,6 +33,7 @@ export class LoginFormComponent implements OnInit {
       if(response.statusCode===200){
         this.formGroup.reset();
         window.sessionStorage.setItem('token',response.jwtToken);
+        window.sessionStorage.setItem('user',JSON.stringify(response.user))
         this.router.navigate(['/']);
         this.toaster.callSuccessToaster('SUCCESS','Logged successfully');
       }
@@ -42,6 +43,9 @@ export class LoginFormComponent implements OnInit {
       }
       else if(response.statusCode===440){
         this.toaster.callErrorToaster('ERROR','Invalid Credentials');
+      }
+      else if(response.statusCode===460){
+        this.toaster.callWarningToaster('ERROR','User Not Activated');
       }
       else{
         this.toaster.callErrorToaster('ERROR','Internal Server Error');
