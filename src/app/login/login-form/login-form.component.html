@@ -3,18 +3,18 @@
         <h1 class="display-4 my-3">LOGIN</h1>
     </div>
     <div class="container bg-light shadow-sm rounded w-80 p-3 my-3">
-        <form [formGroup]="formGroup" (ngSubmit)="onSubmit(formGroup.value)">
+        <form [formGroup]="formGroup" (ngSubmit)="onSubmit(formGroup.value)" >
             <div class="row my-2">
                 <mat-form-field appearance="outline">
                     <mat-label>username</mat-label>
-                    <input matInput formControlName="username" required>
+                    <input matInput formControlName="username" required >
                     <mat-icon matSuffix>perm_identity</mat-icon>
                 </mat-form-field>
             </div>
             <div class="row my-2">
                 <mat-form-field appearance="outline">
                     <mat-label>password</mat-label>
-                    <input formControlName="password" matInput [type]="hidePassword ? 'password' : 'text'" required>
+                    <input formControlName="password" matInput [type]="hidePassword ? 'password' : 'text'" required >
                     <button mat-icon-button matSuffix (click)="hidePassword = !hidePassword"
                         [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hidePassword">
                         <mat-icon>{{hidePassword ? 'visibility_off' : 'visibility'}}</mat-icon>
@@ -23,7 +23,7 @@
             </div>
             <div class="row my-2 text-center">
                 <div class="col-md-12">
-                    <button class="btn btn-success" [disabled]="!formGroup.valid">Login</button><br>
+                    <button class="btn btn-success" [disabled]="!formGroup.valid || disableLoginForm">Login</button><br>
                     <hr>
                     <p class="p-1">Didn't have an account? <a style="text-decoration: none;" routerLink="/createUser">Create Account</a></p>
                 </div>

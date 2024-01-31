@@ -47,7 +47,8 @@ export class CreateUserformComponent {
       emailId:formValue.emailId,
       reportingTo:formValue.reportingTo,
       createdOn:new Date(),
-      active:(formValue.role==='Project Manager')?'Y':'N',
+      active:(formValue.role==='Project Manager')?1:0,
+      locked:0,
       approvedOn:(formValue.role==='Project Manager')?new Date():null,
       gender:formValue.gender
     };
@@ -56,15 +57,15 @@ export class CreateUserformComponent {
         console.log(response);
         if(response.statusCode===200){
           this.formGroup.reset();
-          this.toaster.callSuccessToaster('SUCCESS','User added successfully');
+          this.toaster.callSuccessToaster('SUCCESS',response.message);
         }else if(response.statusCode===410){
-          this.toaster.callWarningToaster('WARN','UserName already exists');
+          this.toaster.callWarningToaster('WARN',response.message);
         }else if(response.statusCode===420){
-          this.toaster.callWarningToaster('WARN','Empid already exists');
+          this.toaster.callWarningToaster('WARN',response.message);
         }else if(response.statusCode===450){
-          this.toaster.callWarningToaster('WARN','Reporting id doesn\'t exists');
+          this.toaster.callWarningToaster('WARN',response.message);
         }else{
-          this.toaster.callErrorToaster('ERROR','Internal Server Error');
+          this.toaster.callErrorToaster('ERROR',response.message);
         }
       },
       (error)=>{

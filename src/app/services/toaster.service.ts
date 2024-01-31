@@ -20,4 +20,7 @@ export class ToasterService {
   callInfoToaster(header:string, body:string,){
     this.service.info(body,header);
   }
+  invalidAttempts(){
+    this.service.error('Wait for 30 sec','Attempts breached',{timeOut:30000,tapToDismiss:false,extendedTimeOut: 0});
+  }
 }

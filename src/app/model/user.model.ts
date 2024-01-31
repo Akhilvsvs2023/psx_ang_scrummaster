@@ -10,6 +10,7 @@ export interface IUser{
     reportingTo:string,
     createdOn:Date,
     approvedOn?:Date,
-    active:string,
+    active:number,
+    locked:number,
     gender:string
 }
