@@ -8,6 +8,9 @@ import { CreateTaskComponent } from './home/create-task/create-task.component';
 import { TaskListComponent } from './home/task-list/task-list.component';
 import { StatisticsComponent } from './home/statistics/statistics.component';
 import { TokenGuard } from './services/tokenGaurd.service';
+import { ProfileComponent } from './home/profile/profile.component';
+import { MyRequestsComponent } from './home/my-requests/my-requests.component';
+import { ApproveRequestsComponent } from './home/approve-requests/approve-requests.component';
 
 const routes: Routes = [
   {path:"login", component:LoginComponent},
@@ -15,7 +18,10 @@ const routes: Routes = [
   {path:"", component:HomeComponent,canActivate:[TokenGuard],canActivateChild:[TokenGuard],children:[
     {path:"createTask", component:CreateTaskComponent},
     {path:"taskList", component:TaskListComponent},
-    {path:"statistics", component:StatisticsComponent}
+    {path:"statistics", component:StatisticsComponent},
+    {path:"profile", component:ProfileComponent},
+    {path:"myRequests", component:MyRequestsComponent},
+    {path:"approveRequests", component:ApproveRequestsComponent}
   ]},
   {path:"**", component:ErrorComponent},
 ];

@@ -44,7 +44,20 @@
   <div class="offcanvas-body">
     <div class="dropdown mt-3">
       <hr><hr>
-      <button type="button" class="btn btn-danger" (click)="logout()">LOGOUT</button>
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/profile">My Profile</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/myRequests">My Requests</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/approveRequests">Approve Requests</a>
+        </li>
+        <li class="nav-item">
+          <button type="button" class="btn btn-danger" (click)="logout()">LOGOUT</button>
+        </li>    
+      </ul>
     </div>
   </div>
 </div>

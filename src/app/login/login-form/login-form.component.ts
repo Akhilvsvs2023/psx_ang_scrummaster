@@ -15,8 +15,6 @@ export class LoginFormComponent implements OnInit {
   post: any = '';
   dynamictype: string = "number";
   hidePassword = true;
-  invalidLoginCount: number = 0;
-  disableLoginForm: boolean = false;
 
   constructor(private formBuilder: FormBuilder,private service:LoginService,private toaster:ToasterService,private router:Router) {
     this.formGroup = this.formBuilder.group({
@@ -30,37 +28,26 @@ export class LoginFormComponent implements OnInit {
   onSubmit(formValue:any) {
     console.log(formValue);
     this.service.validateLogin(formValue).subscribe((response)=>{
-      console.log(this.disableLoginForm)
       if(response.statusCode===200){
         this.formGroup.reset();
         window.sessionStorage.setItem('token',response.jwtToken);
         window.sessionStorage.setItem('user',JSON.stringify(response.user))
         this.router.navigate(['/']);
         this.toaster.callSuccessToaster('SUCCESS',response.message);
-        this.invalidLoginCount=0;
-        this.disableLoginForm=false;
       }
-      else if(response.statusCode===430){
+      else if(response.statusCode===510){
         this.formGroup.reset();
         this.toaster.callErrorToaster('Error',response.message);
-        this.invalidLoginCount++;
       }
-      else if(response.statusCode===440){
+      else if(response.statusCode===520){
         this.toaster.callErrorToaster('ERROR',response.message);
-        this.invalidLoginCount++;
       }
-      else if(response.statusCode===460){
-        this.toaster.callWarningToaster('ERROR',response.message);
-        this.invalidLoginCount++;
+      else if(response.statusCode===530){
+        this.toaster.callWarningToaster('WARN',response.message);
       }
       else{
         this.toaster.callErrorToaster('ERROR',response.message);
-      }
-      if(this.invalidLoginCount>=3){
-        this.disableLoginForm=true;
-        this.toaster.invalidAttempts();
-      }
-      
+      }      
     },
     (error)=>{
       console.log(error); 

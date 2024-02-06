@@ -34,6 +34,9 @@ import { WebsiteOverviewComponent } from './login/website-overview/website-overv
 import { CreateUserformComponent } from './create-user/create-userform/create-userform.component';
 import { ToastrModule } from 'ngx-toastr';
 import { TokenGuard } from './services/tokenGaurd.service';
+import { ProfileComponent } from './home/profile/profile.component';
+import { MyRequestsComponent } from './home/my-requests/my-requests.component';
+import { ApproveRequestsComponent } from './home/approve-requests/approve-requests.component';
 
 
 @NgModule({
@@ -50,6 +53,9 @@ import { TokenGuard } from './services/tokenGaurd.service';
     StatisticsComponent,
     WebsiteOverviewComponent,
     CreateUserformComponent,
+    ProfileComponent,
+    MyRequestsComponent,
+    ApproveRequestsComponent,
   ],
   imports: [
     NgbModule,
