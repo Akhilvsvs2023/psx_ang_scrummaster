@@ -45,6 +45,9 @@ export class LoginFormComponent implements OnInit {
       else if(response.statusCode===530){
         this.toaster.callWarningToaster('WARN',response.message);
       }
+      else if(response.statusCode===540){
+        this.toaster.callWarningToaster('WARN',response.message);
+      }
       else{
         this.toaster.callErrorToaster('ERROR',response.message);
       }      
