@@ -26,12 +26,14 @@ export class LoginFormComponent implements OnInit {
   ngOnInit() { }
 
   onSubmit(formValue:any) {
-    console.log(formValue);
     this.service.validateLogin(formValue).subscribe((response)=>{
       if(response.statusCode===200){
         this.formGroup.reset();
+        window.sessionStorage.clear();
+        localStorage.clear();
         window.sessionStorage.setItem('token',response.jwtToken);
-        window.sessionStorage.setItem('user',JSON.stringify(response.user))
+        window.sessionStorage.setItem('currentUser',response.user.username);
+        window.sessionStorage.setItem('user',JSON.stringify(response.user));
         this.router.navigate(['/']);
         this.toaster.callSuccessToaster('SUCCESS',response.message);
       }

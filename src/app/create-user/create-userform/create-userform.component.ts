@@ -35,7 +35,6 @@ export class CreateUserformComponent {
   }
 
   onSubmit(formValue:any){
-    console.log(formValue);
     var a:IUser={
       username:formValue.username,
       password:formValue.password,
@@ -54,7 +53,6 @@ export class CreateUserformComponent {
     };
     this.service.addUser(a).subscribe(
       (response)=>{
-        console.log(response);
         if(response.statusCode===200){
           this.formGroup.reset();
           this.toaster.callSuccessToaster('SUCCESS',response.message);

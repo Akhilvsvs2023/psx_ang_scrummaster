@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClient, HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
@@ -35,9 +35,9 @@ import { CreateUserformComponent } from './create-user/create-userform/create-us
 import { ToastrModule } from 'ngx-toastr';
 import { TokenGuard } from './services/tokenGaurd.service';
 import { ProfileComponent } from './home/profile/profile.component';
-import { MyRequestsComponent } from './home/my-requests/my-requests.component';
 import { ApproveRequestsComponent } from './home/approve-requests/approve-requests.component';
-
+import { RequestsComponent } from './home/requests/requests.component';
+import { TokenInterceptor } from './services/token.interceptor';
 
 @NgModule({
   declarations: [
@@ -54,8 +54,8 @@ import { ApproveRequestsComponent } from './home/approve-requests/approve-reques
     WebsiteOverviewComponent,
     CreateUserformComponent,
     ProfileComponent,
-    MyRequestsComponent,
     ApproveRequestsComponent,
+    RequestsComponent,
   ],
   imports: [
     NgbModule,
@@ -82,7 +82,11 @@ import { ApproveRequestsComponent } from './home/approve-requests/approve-reques
     MatSortModule,
     HttpClientModule,
   ],
-  providers: [TokenGuard],
+  providers: [{
+    provide : HTTP_INTERCEPTORS, useClass: TokenInterceptor,
+    multi:true
+  },
+  TokenGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
