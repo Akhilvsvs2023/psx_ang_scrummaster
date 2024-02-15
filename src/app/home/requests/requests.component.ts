@@ -10,7 +10,7 @@ import { ToasterService } from 'src/app/services/toaster.service';
 })
 export class RequestsComponent implements OnInit {
 
-  profileRequests: IProfileRequest[];
+  profileRequests: IProfileRequest[]=[];
   profileRequest: IProfileRequest;
   currentUser: string;
   approveReason:string;
@@ -35,8 +35,9 @@ export class RequestsComponent implements OnInit {
   approveUser(): void {
     const dataMap:any ={
         requestId : this.profileRequest.request.requestId,
-        username : this.profileRequest.user.username,
-        message : this.approveReason
+        username : this.profileRequest.userDetails.username,
+        message : this.approveReason,
+        actionBy: window.sessionStorage.getItem('currentUser')
       };
       this.profileRequest=null;
       this.approveReason=null;
@@ -63,8 +64,9 @@ export class RequestsComponent implements OnInit {
   rejectUser(): void {
     const dataMap:any ={
       requestId : this.profileRequest.request.requestId,
-      username : this.profileRequest.user.username,
-      message : this.rejectionReason
+      username : this.profileRequest.userDetails.username,
+      message : this.rejectionReason,
+      actionBy: window.sessionStorage.getItem('currentUser')
     };
     this.profileRequest=null;
     this.rejectionReason=null;
@@ -93,15 +95,4 @@ export class RequestsComponent implements OnInit {
     this.profileRequest=profileRequest;
     console.log(this.profileRequest);
   }
-
-  // submitApproval() {
-  //   console.log(this.approveReason);
-  //   this.approveReason=null;
-  //   console.log(this.approveReason);
-  // }
-  // submitRejection() {
-  //   console.log(this.rejectionReason);
-  //   this.rejectionReason=null;
-  //   console.log(this.rejectionReason);
-  // }
 }

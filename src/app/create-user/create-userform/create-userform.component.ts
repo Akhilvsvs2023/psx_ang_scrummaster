@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { IUser } from 'src/app/model/user.model';
+import { ICreateUser } from 'src/app/model/createUser.model';
 import { LoginService } from 'src/app/services/login.service';
 import { ToasterService } from 'src/app/services/toaster.service';
 
@@ -35,23 +35,19 @@ export class CreateUserformComponent {
   }
 
   onSubmit(formValue:any){
-    var a:IUser={
+    var createUser:ICreateUser={
       username:formValue.username,
       password:formValue.password,
       empId:formValue.empId,
       firstName:formValue.firstName,
       lastName:formValue.lastName,
       departmentName:formValue.departmentName,
-      role:formValue.role,
+      designation:formValue.role,
       emailId:formValue.emailId,
       reportingTo:formValue.reportingTo,
-      createdOn:new Date(),
-      active:(formValue.role==='Project Manager')?1:0,
-      locked:0,
-      approvedOn:(formValue.role==='Project Manager')?new Date():null,
       gender:formValue.gender
     };
-    this.service.addUser(a).subscribe(
+    this.service.addUser(createUser).subscribe(
       (response)=>{
         if(response.statusCode===200){
           this.formGroup.reset();

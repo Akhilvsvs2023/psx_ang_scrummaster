@@ -1,9 +1,16 @@
+<!-- Start of Profile Activation Requests -->
 <div class="container-fluid my-3">
     <h1 class="display-2">Profile Activation Requests</h1>
     <hr>
 </div>
 
-<div class="container-fluid bg-secondary-subtle bg-opacity-75 shadow-sm rounded p-3">
+<div *ngIf="profileRequests.length==0" class="container-fluid bg-secondary-subtle bg-opacity-75 shadow-sm rounded p-3">
+    <div class="row p-5 m-3">
+        <h1 class="opacity-25 text-center"><p>Currently No Requests</p></h1>
+    </div>
+</div>
+
+<div *ngIf="profileRequests.length>0" class="container-fluid bg-secondary-subtle bg-opacity-75 shadow-sm rounded p-3">
     <div class="row">
         <div class="col-md-4" *ngFor="let profileRequest of profileRequests">
             <div class="card m-2">
@@ -11,12 +18,11 @@
                     <h3 class="card-subtitle mb-2 text-body-secondary"><b>{{profileRequest.request.requestId}}</b></h3>
                 </div>
                 <div class="card-body">
-                    <p class="card-text"><b>Employee ID :</b> {{profileRequest.user.empId}}</p>
-                    <p class="card-text"><b>Employee Name :</b> {{profileRequest.user.firstName}}
-                        {{profileRequest.user.lastName}}</p>
-                    <p class="card-text"><b>Designation :</b> {{profileRequest.user.role}}</p>
-                    <p class="card-text"><b>Department :</b> {{profileRequest.user.departmentName}}</p>
-                    <p class="card-text"><b>Created On :</b> {{profileRequest.user.createdOn | date}}</p>
+                    <p class="card-text"><b>Employee ID :</b> {{profileRequest.userDetails.empId}}</p>
+                    <p class="card-text"><b>Employee Name :</b> {{profileRequest.userDetails.firstName}}
+                        {{profileRequest.userDetails.lastName}}</p>
+                    <p class="card-text"><b>Designation :</b> {{profileRequest.userDetails.designation}}</p>
+                    <p class="card-text"><b>Department :</b> {{profileRequest.userDetails.departmentName}}</p>
                 </div>
                 <div class="card-footer">
                     <button type="button" class="btn btn-primary mx-2" (click)="setProfileRequest(profileRequest)" data-bs-toggle="modal" data-bs-target="#approveModal">Approve</button>
@@ -26,8 +32,6 @@
         </div>
     </div>
 </div>
-
-
 
 <!-- Modal for Approval -->
 <div class="modal fade" id="approveModal" tabindex="-1" aria-labelledby="approveModalLabel" aria-hidden="true">
@@ -61,8 +65,9 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary" (click)="rejectUser()">Submit</button>
+                <button type="button" class="btn btn-primary" data-bs-dismiss="modal" (click)="rejectUser()">Submit</button>
             </div>
         </div>
     </div>
 </div>
+<!-- End Of Profile Activation Requests -->

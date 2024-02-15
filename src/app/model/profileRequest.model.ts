@@ -1,7 +1,7 @@
 import { IRequest } from "./request.model";
-import { IUser } from "./user.model";
+import { IUserDetails } from "./userDetails.model";
 
 export interface IProfileRequest{
-    user:IUser;
+    userDetails:IUserDetails;
     request:IRequest;
 }

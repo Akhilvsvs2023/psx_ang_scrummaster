@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { IUser } from '../model/user.model';
+import { ICreateUser } from '../model/createUser.model';
 
 @Injectable({
   providedIn: 'root'
@@ -12,7 +12,7 @@ export class LoginService {
   validateLogin(loginDetails:any):Observable<any>{
     return this.http.post<any>('http://localhost:8080/login/validateLogin',loginDetails);
   }
-  addUser(userDetails:IUser):Observable<any>{
+  addUser(userDetails:ICreateUser):Observable<any>{
     return this.http.post<any>('http://localhost:8080/login/createUser',userDetails);
   }
 }
