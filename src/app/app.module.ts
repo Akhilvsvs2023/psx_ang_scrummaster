@@ -37,7 +37,7 @@ import { TokenGuard } from './services/tokenGaurd.service';
 import { ProfileComponent } from './home/profile/profile.component';
 import { ApproveRequestsComponent } from './home/approve-requests/approve-requests.component';
 import { RequestsComponent } from './home/requests/requests.component';
-import { TokenInterceptor } from './services/token.interceptor';
+// import { TokenInterceptor } from './services/token.interceptor';
 
 @NgModule({
   declarations: [
@@ -65,7 +65,7 @@ import { TokenInterceptor } from './services/token.interceptor';
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    ToastrModule.forRoot({timeOut: 3000,progressBar:true,maxOpened:3,autoDismiss:true}),
+    ToastrModule.forRoot({timeOut: 1500,progressBar:false,maxOpened:3,autoDismiss:true}),
     MatIconModule,
     MatFormFieldModule,
     MatToolbarModule,
@@ -82,10 +82,11 @@ import { TokenInterceptor } from './services/token.interceptor';
     MatSortModule,
     HttpClientModule,
   ],
-  providers: [{
-    provide : HTTP_INTERCEPTORS, useClass: TokenInterceptor,
-    multi:true
-  },
+  providers: [
+    // {
+    // provide : HTTP_INTERCEPTORS, useClass: TokenInterceptor,
+    // multi:true
+    // },
   TokenGuard],
   bootstrap: [AppComponent]
 })
