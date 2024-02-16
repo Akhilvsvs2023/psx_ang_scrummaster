@@ -65,7 +65,7 @@ import { RequestsComponent } from './home/requests/requests.component';
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    ToastrModule.forRoot({timeOut: 1500,progressBar:false,maxOpened:3,autoDismiss:true}),
+    ToastrModule.forRoot({timeOut: 1000,maxOpened:3,autoDismiss:true}),
     MatIconModule,
     MatFormFieldModule,
     MatToolbarModule,

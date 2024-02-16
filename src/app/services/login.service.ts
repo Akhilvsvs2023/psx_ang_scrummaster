@@ -7,12 +7,15 @@ import { ICreateUser } from '../model/createUser.model';
   providedIn: 'root'
 })
 export class LoginService {
+
+  baseURL : string = 'http://localhost:8080/login';
+
   constructor(private http:HttpClient) {}
   
   validateLogin(loginDetails:any):Observable<any>{
-    return this.http.post<any>('http://localhost:8080/login/validateLogin',loginDetails);
+    return this.http.post<any>(this.baseURL+'/validateLogin',loginDetails);
   }
   addUser(userDetails:ICreateUser):Observable<any>{
-    return this.http.post<any>('http://localhost:8080/login/createUser',userDetails);
+    return this.http.post<any>(this.baseURL+'/createUser',userDetails);
   }
 }

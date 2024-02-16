@@ -1,36 +1,36 @@
-<!-- Start of Profile Activation Requests -->
-<div class="container-fluid my-3">
-    <h1 class="display-2">Profile Activation Requests</h1>
-    <hr>
-</div>
-
-<div *ngIf="profileRequests.length==0" class="container-fluid bg-secondary-subtle bg-opacity-75 shadow-sm rounded p-3">
-    <div class="row p-5 m-3">
-        <h1 class="opacity-25 text-center"><p>Currently No Requests</p></h1>
-    </div>
-</div>
-
-<div *ngIf="profileRequests.length>0" class="container-fluid bg-secondary-subtle bg-opacity-75 shadow-sm rounded p-3">
+<div class="container-fluid bg-body-secondary bg-opacity-75 shadow-sm rounded p-5">
+    <!-- Start of Profile Activation Requests -->
     <div class="row">
-        <div class="col-md-4" *ngFor="let profileRequest of profileRequests">
-            <div class="card m-2">
-                <div class="card-header">
-                    <h3 class="card-subtitle mb-2 text-body-secondary"><b>{{profileRequest.request.requestId}}</b></h3>
-                </div>
-                <div class="card-body">
-                    <p class="card-text"><b>Employee ID :</b> {{profileRequest.userDetails.empId}}</p>
-                    <p class="card-text"><b>Employee Name :</b> {{profileRequest.userDetails.firstName}}
-                        {{profileRequest.userDetails.lastName}}</p>
-                    <p class="card-text"><b>Designation :</b> {{profileRequest.userDetails.designation}}</p>
-                    <p class="card-text"><b>Department :</b> {{profileRequest.userDetails.departmentName}}</p>
-                </div>
-                <div class="card-footer">
-                    <button type="button" class="btn btn-primary mx-2" (click)="setProfileRequest(profileRequest)" data-bs-toggle="modal" data-bs-target="#approveModal">Approve</button>
-                    <button type="button" class="btn btn-danger mx-2" (click)="setProfileRequest(profileRequest)" data-bs-toggle="modal" data-bs-target="#rejectionModal">Reject</button>
+        <h1>Profile Activation Requests</h1>
+    </div>
+    <div *ngIf="profileRequests.length==0" class="container-fluid bg-secondary-subtle bg-opacity-75 shadow-sm rounded p-3">
+        <div class="row p-3">
+            <h1 class="opacity-25 text-center"><p>Currently No Profile Activation Requests</p></h1>
+        </div>
+    </div>
+    <div *ngIf="profileRequests.length>0" class="container-fluid bg-secondary-subtle bg-opacity-75 shadow-sm rounded p-5">
+        <div class="row">
+            <div class="col-md-4" *ngFor="let profileRequest of profileRequests">
+                <div class="card m-2">
+                    <div class="card-header">
+                        <h3 class="card-subtitle mb-2 text-body-secondary"><b>{{profileRequest.request.requestId}}</b></h3>
+                    </div>
+                    <div class="card-body">
+                        <p class="card-text"><b>Employee ID :</b> {{profileRequest.userDetails.empId}}</p>
+                        <p class="card-text"><b>Employee Name :</b> {{profileRequest.userDetails.firstName}}
+                            {{profileRequest.userDetails.lastName}}</p>
+                        <p class="card-text"><b>Designation :</b> {{profileRequest.userDetails.designation}}</p>
+                        <p class="card-text"><b>Department :</b> {{profileRequest.userDetails.departmentName}}</p>
+                    </div>
+                    <div class="card-footer">
+                        <button type="button" class="btn btn-primary mx-2" (click)="setProfileRequest(profileRequest)" data-bs-toggle="modal" data-bs-target="#approveModal">Approve</button>
+                        <button type="button" class="btn btn-danger mx-2" (click)="setProfileRequest(profileRequest)" data-bs-toggle="modal" data-bs-target="#rejectionModal">Reject</button>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
+    <!-- Profile Activation Requests Ends -->
 </div>
 
 <!-- Modal for Approval -->

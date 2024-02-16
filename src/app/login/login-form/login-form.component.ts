@@ -32,7 +32,7 @@ export class LoginFormComponent implements OnInit {
         window.sessionStorage.clear();
         localStorage.clear();
         window.sessionStorage.setItem('token',response.jwtToken);
-        window.sessionStorage.setItem('currentUser',response.userDetails.username);
+        window.sessionStorage.setItem('username',response.userDetails.username);
         window.sessionStorage.setItem('userDetails',JSON.stringify(response.userDetails));
         this.router.navigate(['/']);
         this.toaster.callSuccessToaster('SUCCESS',response.message);

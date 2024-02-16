@@ -12,19 +12,16 @@ export class RequestsComponent implements OnInit {
 
   profileRequests: IProfileRequest[]=[];
   profileRequest: IProfileRequest;
-  currentUser: string;
   approveReason:string;
   rejectionReason:string;
 
-  constructor(private service: RequestService, private toaster: ToasterService) {
-    this.currentUser = window.sessionStorage.getItem('currentUser');
-  }
+  constructor(private service: RequestService, private toaster: ToasterService) { }
 
   ngOnInit(): void {
     this.getProfileActivationRequests();
   }
   getProfileActivationRequests(): void {
-    this.service.getProfileActivationRequests(this.currentUser).subscribe((response) => {
+    this.service.getProfileActivationRequests(window.sessionStorage.getItem('username')).subscribe((response) => {
       this.profileRequests = response;
     },
       (error) => {

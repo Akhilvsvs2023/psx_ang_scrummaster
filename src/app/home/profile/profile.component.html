@@ -1,1 +1,56 @@
-<p>profile works!</p>
+<div class="container-fluid bg-body-secondary bg-opacity-75 shadow-sm rounded p-5">
+    <!-- Start of Basic Information -->
+    <div class="row">
+        <h1>Basic Information</h1>
+    </div>
+    <div class="container-fluid bg-secondary-subtle shadow-sm rounded p-5">
+        <div class="row">
+            <div class="col-sm-6"><p>First Name : {{userDetails.firstName}}</p></div>
+            <div class="col-sm-6"><p>Last Name : {{userDetails.lastName}}</p></div>
+        </div>
+        <div class="row">
+            <div class="col-sm-6"><p>Employee ID : {{userDetails.empId}}</p></div>
+            <div class="col-sm-6"><p>Reporting To : {{userDetails.reportingTo}}</p></div>
+        </div>
+        <div class="row">
+            <div class="col-sm-6"><p>Email ID : {{userDetails.emailId}}</p></div>
+            <div class="col-sm-6"><p>Gender : {{userDetails.gender}}</p></div>
+        </div>
+        <div class="row">
+            <div class="col-sm-6"><p>Department Name : {{userDetails.departmentName}}</p></div>
+            <div class="col-sm-6"><p>Designation : {{userDetails.designation}}</p></div>
+        </div>
+    </div>
+    <!-- End of Basic Information -->
+    
+    <!-- Start Of Reportees  -->
+    <div class="row pt-5">
+        <h1>Reportees</h1>
+    </div>
+    <div *ngIf="reportees.length>0" class="container-fluid bg-secondary-subtle bg-opacity-75 shadow-sm rounded p-5">
+        <div class="row">
+            <div class="col-md-4" *ngFor="let reportee of reportees">
+                <div class="card m-2">
+                    <div class="card-header">
+                        <h3 class="card-subtitle mb-2 text-body-secondary"><b>{{reportee.empId}}</b></h3>
+                    </div>
+                    <div class="card-body">
+                        <p class="card-text"><b>Employee Name :</b> {{reportee.firstName}}
+                            {{reportee.lastName}}</p>
+                        <p class="card-text"><b>Designation :</b> {{reportee.designation}}</p>
+                        <p class="card-text"><b>Department :</b> {{reportee.departmentName}}</p>
+                        <p class="card-text"><b>Gender :</b> {{reportee.gender}}</p>
+                        <p class="card-text"><b>Email :</b> {{reportee.emailId}}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div *ngIf="reportees.length==0" class="container-fluid bg-secondary-subtle bg-opacity-75 shadow-sm rounded p-3">
+        <div class="row p-3">
+            <h1 class="opacity-25 text-center"><p>Currently No Reportees</p></h1>
+        </div>
+    </div>
+    <!-- End of Reportees -->
+</div>
