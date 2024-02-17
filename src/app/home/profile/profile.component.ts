@@ -11,6 +11,8 @@ export class ProfileComponent implements OnInit{
   
   userDetails:IUserDetails;
   reportees:IUserDetails[]=[]
+  teamMembers:any={}
+
   constructor(private service:ProfileService){
     this.userDetails={
       firstName:null,
@@ -23,11 +25,19 @@ export class ProfileComponent implements OnInit{
       reportingTo:null,
       gender:null
     };
+    this.teamMembers={
+      pm:[],
+      sse:[],
+      se:[],
+      ase:[],
+      t:[]
+    }
   }
   
   ngOnInit(): void {
     this.getUserDetails();
     this.getReportees();
+    this.getTeamMembers();
   }
 
   getReportees():void{
@@ -42,6 +52,16 @@ export class ProfileComponent implements OnInit{
   getUserDetails():void{
     this.service.getUserDetails(window.sessionStorage.getItem('username')).subscribe((response)=>{
       this.userDetails=response;
+    },
+    (error)=>{
+      console.log(error);
+    });
+  }
+
+  getTeamMembers():void{
+    this.service.getTeamMembers(window.sessionStorage.getItem('username')).subscribe((response)=>{
+      this.teamMembers=response;
+      console.log(this.teamMembers);
     },
     (error)=>{
       console.log(error);

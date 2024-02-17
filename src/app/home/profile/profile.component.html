@@ -53,4 +53,132 @@
         </div>
     </div>
     <!-- End of Reportees -->
+    
+    <!-- Start of Team Members  -->
+    <div class="row pt-5">
+        <h1>Team Members</h1>
+    </div>
+    <div *ngIf="reportees.length>0" class="container-fluid bg-secondary-subtle bg-opacity-75 shadow-sm rounded p-5">
+        <!-- Project Manager -->
+        <div class="row">
+            <h2>Project Managers</h2>
+        </div>     
+        <div class="row" *ngIf="teamMembers.pm.length > 0">
+            <div class="col-md-4" *ngFor="let member of teamMembers.pm">
+                <div class="card m-2">
+                    <div class="card-header">
+                        <h3 class="card-subtitle mb-2 text-body-secondary"><b>{{member.empId}}</b></h3>
+                    </div>
+                    <div class="card-body">
+                        <p class="card-text"><b>Employee Name :</b> {{member.firstName}}
+                            {{member.lastName}}</p>
+                        <p class="card-text"><b>Gender :</b> {{member.gender}}</p>
+                        <p class="card-text"><b>Email :</b> {{member.emailId}}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div *ngIf="teamMembers.pm.length==0" class="container-fluid bg-secondary-subtle bg-opacity-75 shadow-sm rounded p-3">
+            <div class="row p-3">
+                <h1 class="opacity-25 text-center"><p>Currently No Project Managers</p></h1>
+            </div>
+        </div>
+        <!-- Senior Software Engineer -->
+        <div class="row">
+            <h2>Senior Software Engineers</h2>
+        </div>
+        <div class="row" *ngIf="teamMembers.sse.length > 0">
+            <div class="col-md-4" *ngFor="let member of teamMembers.sse">
+                <div class="card m-2">
+                    <div class="card-header">
+                        <h3 class="card-subtitle mb-2 text-body-secondary"><b>{{member.empId}}</b></h3>
+                    </div>
+                    <div class="card-body">
+                        <p class="card-text"><b>Employee Name :</b> {{member.firstName}}
+                            {{member.lastName}}</p>
+                        <p class="card-text"><b>Gender :</b> {{member.gender}}</p>
+                        <p class="card-text"><b>Email :</b> {{member.emailId}}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div *ngIf="teamMembers.sse.length==0" class="container-fluid bg-secondary-subtle bg-opacity-75 shadow-sm rounded p-3">
+            <div class="row p-3">
+                <h1 class="opacity-25 text-center"><p>Currently No Senior Software Engineers</p></h1>
+            </div>
+        </div>
+        <!-- Software Engineer -->
+        <div class="row">
+            <h2>Software Engineers</h2>
+        </div>
+        <div class="row" *ngIf="teamMembers.se.length > 0">
+            <div class="col-md-4" *ngFor="let member of teamMembers.se">
+                <div class="card m-2">
+                    <div class="card-header">
+                        <h3 class="card-subtitle mb-2 text-body-secondary"><b>{{member.empId}}</b></h3>
+                    </div>
+                    <div class="card-body">
+                        <p class="card-text"><b>Employee Name :</b> {{member.firstName}}
+                            {{member.lastName}}</p>
+                        <p class="card-text"><b>Gender :</b> {{member.gender}}</p>
+                        <p class="card-text"><b>Email :</b> {{member.emailId}}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div *ngIf="teamMembers.se.length==0" class="container-fluid bg-secondary-subtle bg-opacity-75 shadow-sm rounded p-3">
+            <div class="row p-3">
+                <h1 class="opacity-25 text-center"><p>Currently No Software Engineers</p></h1>
+            </div>
+        </div>
+        <!-- Associate Software Engineer -->
+        <div class="row">
+            <h2>Associate Software Engineers</h2>
+        </div>
+        <div class="row" *ngIf="teamMembers.ase.length > 0">
+            <div class="col-md-4" *ngFor="let member of teamMembers.ase">
+                <div class="card m-2">
+                    <div class="card-header">
+                        <h3 class="card-subtitle mb-2 text-body-secondary"><b>{{member.empId}}</b></h3>
+                    </div>
+                    <div class="card-body">
+                        <p class="card-text"><b>Employee Name :</b> {{member.firstName}}
+                            {{member.lastName}}</p>
+                        <p class="card-text"><b>Gender :</b> {{member.gender}}</p>
+                        <p class="card-text"><b>Email :</b> {{member.emailId}}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div *ngIf="teamMembers.ase.length==0" class="container-fluid bg-secondary-subtle bg-opacity-75 shadow-sm rounded p-3">
+            <div class="row p-3">
+                <h1 class="opacity-25 text-center"><p>Currently No Associate Software Engineers</p></h1>
+            </div>
+        </div>
+        <!-- Trainee -->
+        <div class="row">
+            <h2>Trainees</h2>
+        </div>
+        <div class="row" *ngIf="teamMembers.t.length > 0">
+            <div class="col-md-4" *ngFor="let member of teamMembers.t">
+                <div class="card m-2">
+                    <div class="card-header">
+                        <h3 class="card-subtitle mb-2 text-body-secondary"><b>{{member.empId}}</b></h3>
+                    </div>
+                    <div class="card-body">
+                        <p class="card-text"><b>Employee Name :</b> {{member.firstName}}
+                            {{member.lastName}}</p>
+                        <p class="card-text"><b>Gender :</b> {{member.gender}}</p>
+                        <p class="card-text"><b>Email :</b> {{member.emailId}}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div *ngIf="teamMembers.t.length==0" class="container-fluid bg-secondary-subtle bg-opacity-75 shadow-sm rounded p-3">
+            <div class="row p-3">
+                <h1 class="opacity-25 text-center"><p>Currently No Trainees</p></h1>
+            </div>
+        </div>
+    </div>
+    <!-- End of Team Members -->
 </div>

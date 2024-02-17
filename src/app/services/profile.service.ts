@@ -20,4 +20,7 @@ export class ProfileService {
     return this.http.get<IUserDetails[]>(this.baseURL+'/getReportees?username='+username);
   }
 
+  getTeamMembers(username:string):Observable<any>{
+    return this.http.get<any>(this.baseURL+'/getTeam?username='+username);
+  }
 }
