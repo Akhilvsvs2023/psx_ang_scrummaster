@@ -10,8 +10,8 @@ export class RequestService {
   baseURL : string = 'http://localhost:8080/request';
   constructor(private http:HttpClient) {}
   
-  getProfileActivationRequests(currentUser:string):Observable<IProfileRequest[]>{
-    return this.http.get<IProfileRequest[]>(this.baseURL+'/getProfileRequests?currentUser='+currentUser);
+  getProfileActivationRequests(username:string):Observable<IProfileRequest[]>{
+    return this.http.get<IProfileRequest[]>(this.baseURL+'/getProfileRequests?currentUser='+username);
   }
 
   approveProfile(dataMap:any):Observable<any>{

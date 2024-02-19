@@ -34,7 +34,7 @@ export class RequestsComponent implements OnInit {
         requestId : this.profileRequest.request.requestId,
         username : this.profileRequest.userDetails.username,
         message : this.approveReason,
-        actionBy: window.sessionStorage.getItem('currentUser')
+        actionBy: window.sessionStorage.getItem('username')
       };
       this.profileRequest=null;
       this.approveReason=null;
@@ -63,7 +63,7 @@ export class RequestsComponent implements OnInit {
       requestId : this.profileRequest.request.requestId,
       username : this.profileRequest.userDetails.username,
       message : this.rejectionReason,
-      actionBy: window.sessionStorage.getItem('currentUser')
+      actionBy: window.sessionStorage.getItem('username')
     };
     this.profileRequest=null;
     this.rejectionReason=null;
