@@ -11,11 +11,13 @@ import { TokenGuard } from './services/tokenGaurd.service';
 import { ProfileComponent } from './home/profile/profile.component';
 import { ApproveRequestsComponent } from './home/approve-requests/approve-requests.component';
 import { RequestsComponent } from './home/requests/requests.component';
+import { DashboardComponent } from './home/dashboard/dashboard.component';
 
 const routes: Routes = [
   {path:"login", component:LoginComponent},
   {path:"createUser", component:CreateUserComponent},
   {path:"", component:HomeComponent,canActivate:[TokenGuard],canActivateChild:[TokenGuard],children:[
+    {path:"dashBoard", component:DashboardComponent},
     {path:"createTask", component:CreateTaskComponent},
     {path:"taskList", component:TaskListComponent},
     {path:"statistics", component:StatisticsComponent},

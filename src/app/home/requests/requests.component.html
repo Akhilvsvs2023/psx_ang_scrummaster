@@ -1,18 +1,18 @@
-<div class="container-fluid bg-body-secondary bg-opacity-75 shadow-sm rounded p-5">
+<div class="container-fluid bg-secondary-subtle shadow-sm rounded p-5">
     <!-- Start of Profile Activation Requests -->
     <div class="row">
         <h1>Profile Activation Requests</h1>
     </div>
-    <div *ngIf="profileRequests.length==0" class="container-fluid bg-secondary-subtle bg-opacity-75 shadow-sm rounded p-3">
+    <div *ngIf="profileRequests.length==0" class="container-fluid text-bg-light bg-opacity-75 shadow-sm rounded p-3">
         <div class="row p-3">
             <h1 class="opacity-25 text-center"><p>Currently No Profile Activation Requests</p></h1>
         </div>
     </div>
-    <div *ngIf="profileRequests.length>0" class="container-fluid bg-secondary-subtle bg-opacity-75 shadow-sm rounded p-5">
+    <div *ngIf="profileRequests.length>0" class="container-fluid text-bg-light shadow-sm rounded p-5">
         <div class="row">
             <div class="col-md-4" *ngFor="let profileRequest of profileRequests">
                 <div class="card m-2">
-                    <div class="card-header">
+                    <div class="card-header bg-secondary-subtle">
                         <h3 class="card-subtitle mb-2 text-body-secondary"><b>{{profileRequest.request.requestId}}</b></h3>
                     </div>
                     <div class="card-body">
@@ -22,9 +22,9 @@
                         <p class="card-text"><b>Designation :</b> {{profileRequest.userDetails.designation}}</p>
                         <p class="card-text"><b>Department :</b> {{profileRequest.userDetails.departmentName}}</p>
                     </div>
-                    <div class="card-footer">
-                        <button type="button" class="btn btn-primary mx-2" (click)="setProfileRequest(profileRequest)" data-bs-toggle="modal" data-bs-target="#approveModal">Approve</button>
-                        <button type="button" class="btn btn-danger mx-2" (click)="setProfileRequest(profileRequest)" data-bs-toggle="modal" data-bs-target="#rejectionModal">Reject</button>
+                    <div class="card-footer bg-secondary-subtle">
+                        <button type="button" class="btn btn-primary m-2" (click)="setProfileRequest(profileRequest)" data-bs-toggle="modal" data-bs-target="#approveModal">Approve</button>
+                        <button type="button" class="btn btn-danger m-2" (click)="setProfileRequest(profileRequest)" data-bs-toggle="modal" data-bs-target="#rejectionModal">Reject</button>
                     </div>
                 </div>
             </div>

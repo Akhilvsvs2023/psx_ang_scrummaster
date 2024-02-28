@@ -37,6 +37,7 @@ import { TokenGuard } from './services/tokenGaurd.service';
 import { ProfileComponent } from './home/profile/profile.component';
 import { ApproveRequestsComponent } from './home/approve-requests/approve-requests.component';
 import { RequestsComponent } from './home/requests/requests.component';
+import { DashboardComponent } from './home/dashboard/dashboard.component';
 // import { TokenInterceptor } from './services/token.interceptor';
 
 @NgModule({
@@ -56,6 +57,7 @@ import { RequestsComponent } from './home/requests/requests.component';
     ProfileComponent,
     ApproveRequestsComponent,
     RequestsComponent,
+    DashboardComponent,
   ],
   imports: [
     NgbModule,
