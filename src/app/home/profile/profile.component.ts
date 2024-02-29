@@ -35,7 +35,7 @@ export class ProfileComponent implements OnInit{
   }
   
   ngOnInit(): void {
-    this.getUserDetails();
+    this.userDetails=JSON.parse(window.sessionStorage.getItem('userDetails'));
     this.getReportees();
     this.getTeamMembers();
   }
@@ -49,17 +49,17 @@ export class ProfileComponent implements OnInit{
     });
   }
 
-  getUserDetails():void{
-    this.service.getUserDetails(window.sessionStorage.getItem('username')).subscribe((response)=>{
-      this.userDetails=response;
-    },
-    (error)=>{
-      console.log(error);
-    });
-  }
+  // getUserDetails():void{
+  //   this.service.getUserDetails(window.sessionStorage.getItem('username')).subscribe((response)=>{
+  //     this.userDetails=response;
+  //   },
+  //   (error)=>{
+  //     console.log(error);
+  //   });
+  // }
 
   getTeamMembers():void{
-    this.service.getTeamMembers(window.sessionStorage.getItem('username')).subscribe((response)=>{
+    this.service.getTeamMembers(JSON.parse(window.sessionStorage.getItem('userDetails')).empId).subscribe((response)=>{
       this.teamMembers=response;
       console.log(this.teamMembers);
     },

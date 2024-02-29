@@ -46,7 +46,7 @@ export class CreateTaskComponent {
   }
   
   getReportees():void{
-    this.profileService.getReportees(window.sessionStorage.getItem('username')).subscribe((response)=>{
+    this.profileService.getReportees(JSON.parse(window.sessionStorage.getItem('userDetails')).empId).subscribe((response)=>{
       this.reportees=response;
     },
     (error)=>{

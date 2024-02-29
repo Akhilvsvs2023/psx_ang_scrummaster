@@ -12,15 +12,11 @@ export class ProfileService {
 
   constructor(private http:HttpClient) { }
 
-  getUserDetails(username:string):Observable<IUserDetails>{
-    return this.http.get<IUserDetails>(this.baseURL+'/getUserDetails?username='+username);
+  getReportees(empId:string):Observable<IUserDetails[]>{
+    return this.http.get<IUserDetails[]>(this.baseURL+'/getReportees?empId='+empId);
   }
 
-  getReportees(username:string):Observable<IUserDetails[]>{
-    return this.http.get<IUserDetails[]>(this.baseURL+'/getReportees?username='+username);
-  }
-
-  getTeamMembers(username:string):Observable<any>{
-    return this.http.get<any>(this.baseURL+'/getTeam?username='+username);
+  getTeamMembers(empId:string):Observable<any>{
+    return this.http.get<any>(this.baseURL+'/getTeam?empId='+empId);
   }
 }
