@@ -16,6 +16,7 @@ export class CreateTaskComponent {
   taskFormGroup !: FormGroup;
   userDetails !: IUserDetails
   reportees : IUserDetails[] = []
+  user : string = '';
 
   constructor(private formBuilder : FormBuilder,private router:Router,private toaster:ToasterService,private profileService:ProfileService,private taskService:TaskService){
     this.userDetails={
@@ -33,12 +34,13 @@ export class CreateTaskComponent {
 
   ngOnInit(): void {
     this.userDetails = JSON.parse(window.sessionStorage.getItem('userDetails'));
+    this.user=this.userDetails.empId;
     this.getReportees();
     this.taskFormGroup = this.formBuilder.group({
       'taskName'     : ['',Validators.required],
       'projectName'  : ['',Validators.required],
       'description'  : [''],
-      'assignedBy'   : [this.userDetails.empId],
+      'assignedBy'   : [{value : JSON.parse(window.sessionStorage.getItem('userDetails')).empId,disabled:true},Validators.required],
       'assignedTo'   : ['',Validators.required],
       'priority'     : ['',Validators.required],
       'deadline'     : ['',Validators.required],
@@ -62,7 +64,7 @@ export class CreateTaskComponent {
       taskName : formData.taskName,
       projectName : formData.projectName,
       description : formData.description,
-      assignedBy  : formData.assignedBy,
+      assignedBy  : this.user,
       assignedTo  : formData.assignedTo,
       priority    : formData.priority,
       createdOn   : date,
