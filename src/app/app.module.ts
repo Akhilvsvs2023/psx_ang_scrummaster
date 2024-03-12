@@ -57,12 +57,11 @@ import { DashboardComponent } from './home/dashboard/dashboard.component';
     ProfileComponent,
     ApproveRequestsComponent,
     RequestsComponent,
-    DashboardComponent,
+    DashboardComponent
   ],
   imports: [
     NgbModule,
     FormsModule,
-    MatSnackBarModule,
     ReactiveFormsModule,
     BrowserModule,
     AppRoutingModule,
@@ -70,19 +69,12 @@ import { DashboardComponent } from './home/dashboard/dashboard.component';
     ToastrModule.forRoot({timeOut: 1000,maxOpened:3,autoDismiss:true}),
     MatIconModule,
     MatFormFieldModule,
-    MatToolbarModule,
-    MatCardModule,
     MatButtonModule,
     MatInputModule,
-    MatDialogModule,
-    MatDatepickerModule,
-    MatNativeDateModule,
-    MatRadioModule,
-    MatSelectModule,
-    MatTableModule,
-    MatPaginatorModule,
-    MatSortModule,
     HttpClientModule,
+    MatTableModule,
+    MatSortModule,
+    MatPaginatorModule
   ],
   providers: [
     // {

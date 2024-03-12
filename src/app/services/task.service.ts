@@ -24,4 +24,9 @@ export class TaskService {
     return this.http.get<ITable>(this.baseURL+'/getAssignedToMe?empId='+empId);
   }
 
+  getTeamTasks(empId:string):Observable<any>{
+    return this.http.get<any>(this.baseURL+'/getTeamTasks?empId='+empId);
+  }
+
+
 }
