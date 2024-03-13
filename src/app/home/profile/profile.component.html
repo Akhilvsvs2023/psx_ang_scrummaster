@@ -1,4 +1,4 @@
-<div class="container-fluid bg-secondary-subtle  shadow-sm rounded p-5">
+<div class="container-fluid  shadow-sm rounded p-5">
     <!-- Start of Basic Information -->
     <div class="row">
         <h1>Basic Information</h1>
@@ -27,7 +27,7 @@
     <div class="row pt-5">
         <h1>Reportees</h1>
     </div>
-    <div *ngIf="reportees.length>0" class="container-fluid text-bg-light shadow-sm rounded p-5">
+    <div *ngIf="reportees.length>0" class="container-fluid  shadow-sm rounded p-5">
         <div class="row">
             <div class="col-md-4" *ngFor="let reportee of reportees">
                 <div class="card m-2">
@@ -47,7 +47,7 @@
         </div>
     </div>
 
-    <div *ngIf="reportees.length==0" class="container-fluid text-bg-light shadow-sm rounded p-3">
+    <div *ngIf="reportees.length==0" class="container-fluid  bg-opacity-75 p-3 shadow-sm">
         <div class="row p-3">
             <h1 class="opacity-25 text-center"><p>Currently No Reportees</p></h1>
         </div>
@@ -58,7 +58,7 @@
     <div class="row pt-5">
         <h1>Team Members</h1>
     </div>
-    <div class="container-fluid text-bg-light shadow-sm rounded p-5">
+    <div class="container-fluid  shadow-sm rounded p-5">
         <!-- Project Manager -->
         <div class="row">
             <h2>Project Managers</h2>
@@ -78,7 +78,7 @@
                 </div>
             </div>
         </div>
-        <div *ngIf="teamMembers.pm.length==0" class="container-fluid bg-secondary-subtle bg-opacity-75 shadow-sm rounded p-3">
+        <div *ngIf="teamMembers.pm.length==0" class="container-fluid  bg-opacity-75 p-3">
             <div class="row p-3">
                 <h1 class="opacity-25 text-center"><p>Currently No Project Managers</p></h1>
             </div>
@@ -102,7 +102,7 @@
                 </div>
             </div>
         </div>
-        <div *ngIf="teamMembers.sse.length==0" class="container-fluid bg-secondary-subtle bg-opacity-75 shadow-sm rounded p-3">
+        <div *ngIf="teamMembers.sse.length==0" class="container-fluid  bg-opacity-75 p-3">
             <div class="row p-3">
                 <h1 class="opacity-25 text-center"><p>Currently No Senior Software Engineers</p></h1>
             </div>
@@ -126,7 +126,7 @@
                 </div>
             </div>
         </div>
-        <div *ngIf="teamMembers.se.length==0" class="container-fluid bg-secondary-subtle bg-opacity-75 shadow-sm rounded p-3">
+        <div *ngIf="teamMembers.se.length==0" class="container-fluid  bg-opacity-75 p-3">
             <div class="row p-3">
                 <h1 class="opacity-25 text-center"><p>Currently No Software Engineers</p></h1>
             </div>
@@ -150,7 +150,7 @@
                 </div>
             </div>
         </div>
-        <div *ngIf="teamMembers.ase.length==0" class="container-fluid bg-secondary-subtle bg-opacity-75 shadow-sm rounded p-3">
+        <div *ngIf="teamMembers.ase.length==0" class="container-fluid  bg-opacity-75 p-3">
             <div class="row p-3">
                 <h1 class="opacity-25 text-center"><p>Currently No Associate Software Engineers</p></h1>
             </div>
@@ -174,7 +174,7 @@
                 </div>
             </div>
         </div>
-        <div *ngIf="teamMembers.t.length==0" class="container-fluid bg-secondary-subtle bg-opacity-75 shadow-sm rounded p-3">
+        <div *ngIf="teamMembers.t.length==0" class="container-fluid  bg-opacity-75 p-3">
             <div class="row p-3">
                 <h1 class="opacity-25 text-center"><p>Currently No Trainees</p></h1>
             </div>

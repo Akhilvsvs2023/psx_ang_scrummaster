@@ -1,8 +1,8 @@
-<div class="container-fluid bg-dark-subtle p-5" *ngIf="reportees.length>0">
+<div class="container-fluid  p-5" *ngIf="reportees.length>0">
     <div class="row text-center my-3">
         <h1 class="display-4">Create Task</h1>
     </div>
-    <div class="container bg-light shadow- rounded form-group w-75 p-5 my-2">
+    <div class="container bg-light shadow-sm rounded form-group w-75 p-5 my-2">
         <form [formGroup]="taskFormGroup" (ngSubmit)="onSubmit(taskFormGroup.value)">
             <div class="row my-2">
                 <div class="col-sm-6">
@@ -91,7 +91,7 @@
     </div>
 </div>
 
-<div *ngIf="reportees.length==0" class="container-fluid text-bg-light  shadow-sm rounded p-3 ">
+<div *ngIf="reportees.length==0" class="container-fluid  p-3 ">
     <div class="row p-3">
         <h1 class="opacity-25 text-center">
             <p>Cant create task without reportees</p>
