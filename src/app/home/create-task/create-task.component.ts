@@ -40,7 +40,6 @@ export class CreateTaskComponent {
       'taskName'     : ['',Validators.required],
       'projectName'  : ['',Validators.required],
       'description'  : [''],
-      'assignedBy'   : [{value : JSON.parse(window.sessionStorage.getItem('userDetails')).empId,disabled:true},Validators.required],
       'assignedTo'   : ['',Validators.required],
       'priority'     : ['',Validators.required],
       'deadline'     : ['',Validators.required],

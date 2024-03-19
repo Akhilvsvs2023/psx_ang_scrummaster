@@ -7,11 +7,12 @@
 body {
     margin: 0;
     padding: 0;
-    background-image: url('src/assets/bg.jpg');
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-position: center;
+    /* background-image: url('src/assets/bg.jpg'); */
+    background-color: #EEEEEE;
+    /* background-size: cover; */
+    /* background-repeat: no-repeat; */
+    /* background-attachment: fixed; */
+    /* background-position: center; */
     
     font-family: Roboto, "Helvetica Neue", sans-serif;
 }

@@ -74,7 +74,12 @@ import { DashboardComponent } from './home/dashboard/dashboard.component';
     HttpClientModule,
     MatTableModule,
     MatSortModule,
-    MatPaginatorModule
+    MatPaginatorModule,
+    MatCardModule,
+    MatDatepickerModule,
+    MatRadioModule,
+    MatSelectModule,
+    MatNativeDateModule
   ],
   providers: [
     // {

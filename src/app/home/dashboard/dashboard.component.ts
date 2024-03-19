@@ -1,5 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { MatPaginator } from '@angular/material/paginator';
+import { MatSort } from '@angular/material/sort';
+import { MatTableDataSource } from '@angular/material/table';
 import { ITable } from 'src/app/model/table.model';
+import { ITask } from 'src/app/model/task.model';
 import { IUserDetails } from 'src/app/model/userDetails.model';
 import { TaskService } from 'src/app/services/task.service';
 
@@ -10,15 +14,26 @@ import { TaskService } from 'src/app/services/task.service';
 })
 export class DashboardComponent implements OnInit {
   
-  assignedByMe : ITable;
+  assignedByMeTable : ITable;
   userDetails  : IUserDetails;
-  assignedToMe : ITable
+  assignedToMeTable : ITable;
+  assignedToMeDataSource = new MatTableDataSource;
+  assignedByMeDataSource = new MatTableDataSource;
+
+  @ViewChild(MatPaginator) assignedToMePaginator: MatPaginator;
+  @ViewChild(MatPaginator) assignedByMePaginator: MatPaginator;
+  
+  ngAfterViewInit() {
+    this.assignedToMeDataSource.paginator = this.assignedToMePaginator;
+    this.assignedByMeDataSource.paginator = this.assignedByMePaginator;
+  }
+
   constructor(private service:TaskService){
-    this.assignedByMe={
+    this.assignedByMeTable={
       headers:[],
       records:[]
     }
-    this.assignedToMe={
+    this.assignedToMeTable={
       headers:[],
       records:[]
     }
@@ -33,7 +48,9 @@ export class DashboardComponent implements OnInit {
   populateAssignedToMe(empId:string):void{
     this.service.getAssignedToMe(empId).subscribe(
       (response) => {
-        this.assignedToMe=response;
+        this.assignedToMeTable=response;
+        this.assignedToMeDataSource = new MatTableDataSource<string[]>(this.assignedToMeTable.records);
+        this.assignedToMeDataSource.paginator=this.assignedToMePaginator;
       },
       (error) => {
         console.log(error);
@@ -44,7 +61,9 @@ export class DashboardComponent implements OnInit {
   populateAssignedByMe(empId:string):void{
     this.service.getAssignedByMe(empId).subscribe(
       (response) => {
-        this.assignedByMe=response;
+        this.assignedByMeTable=response;
+        this.assignedByMeDataSource = new MatTableDataSource<string[]>(this.assignedByMeTable.records);
+        this.assignedByMeDataSource.paginator=this.assignedByMePaginator;
       },
       (error) => {
         console.log(error);

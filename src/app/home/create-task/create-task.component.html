@@ -1,10 +1,10 @@
 <div class="container-fluid  p-5" *ngIf="reportees.length>0">
-    <div class="row text-center my-3">
+    <div class="row text-center mt-3">
         <h1 class="display-4">Create Task</h1>
     </div>
     <div class="container bg-light shadow-sm rounded form-group w-75 p-5 my-2">
         <form [formGroup]="taskFormGroup" (ngSubmit)="onSubmit(taskFormGroup.value)">
-            <div class="row my-2">
+            <div class="row my-4">
                 <div class="col-sm-6">
                     <label class="form-label" for="taskName">Task Name</label>
                     <input type="text" class="form-control" id="taskName" formControlName="taskName" required
@@ -23,7 +23,7 @@
                     </div>
                 </div>
             </div>
-            <div class="row my-2">
+            <div class="row my-4">
                 <div class="col-md-12">
                     <label for="description" class="form-label">Task Description</label>
                     <textarea class="form-control" id="description" formControlName="description" rows="10"
@@ -35,13 +35,8 @@
                     <p>Please enter Task Description</p>
                 </div>
             </div>
-            <div class="row my-2">
-                <div class="col-sm-6">
-                    <label for="assignedBy" class="form-label" class="form-label">Assigned By</label>
-                    <input type="text" class="form-control" id="assignedBy" formControlName="assignedBy" required
-                        [ngClass]="{'is-invalid' : taskFormGroup.controls.assignedBy.touched && taskFormGroup.controls.assignedBy.errors}">
-                </div>
-                <div class="col-sm-6">
+            <div class="row my-4">
+                <div class="col-sm-4">
                     <label for="assignedTo" class="form-label" class="form-label">Assign To</label>
                     <select id="assignedTo" class="form-select" formControlName="assignedTo"
                         placeholder="---select teammate---" name="assignedTo" required
@@ -54,9 +49,7 @@
                         <p>Please Assign Task</p>
                     </div>
                 </div>
-            </div>
-            <div class="row my-2">
-                <div class="col-sm-6">
+                <div class="col-sm-4">
                     <label for="priority" class="form-label" class="form-label">Priority</label>
                     <select name="priority" class="form-select" id="priority" formControlName="priority"
                         placeholder="---select priority---" required
@@ -71,7 +64,7 @@
                         <p>Please select priority</p>
                     </div>
                 </div>
-                <div class="col-sm-6">
+                <div class="col-sm-4">
                     <label for="deadline" class="form-label">DeadLine</label>
                     <input type="date" class="form-control" id="deadline" formControlName="deadline" required
                         [ngClass]="{'is-invalid' : taskFormGroup.controls.deadline.touched && taskFormGroup.controls.deadline.errors} ">
@@ -90,6 +83,8 @@
         </form>
     </div>
 </div>
+
+
 
 <div *ngIf="reportees.length==0" class="container-fluid  p-3 ">
     <div class="row p-3">
