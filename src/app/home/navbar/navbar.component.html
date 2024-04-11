@@ -1,68 +1,49 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark" >
-  <div class="container-fluid">
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <!-- Logo -->
-      <a class="navbar-brand mt-2 mt-lg-0 px-2" routerLink="/dashBoard">
-        <img src="assets/logo.png" height="50" alt="PSX Logo" loading="lazy" />
-      </a>
-      <!-- LeftSide Urls -->
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        <li class="nav-item">
-          <a class="nav-link" routerLink="/dashBoard">DashBoard</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" routerLink="/createTask">Create</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" routerLink="/taskList">ToDo</a>
-        </li>   
-      </ul>      
-    </div>
-    <!-- RightSide Urls -->
-    <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
-      <ul class="nav justify-content-end mb-1 mb-lg-0 px-2">
-        <li class="nav-item">
-          <a style="text-decoration: none;color: darkgray;" class="nav-link">{{currentDate |  date : "dd MMM,yyyy hh:mm:ss" }}</a>
-        </li>
-      </ul>
-      <a class="nav-link" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample">
-        <img src="assets/profile.png" height="40px" alt="">
-      </a>
-    </div>       
-  </div>  
-</nav>
+<mat-toolbar color="primary" class="mat-elevation-z8">
+  <button (click)="drawer.toggle()" mat-icon-button>
+      <mat-icon>menu</mat-icon>
+  </button>
+  <span>ScrumMaster</span>
+  <span class="example-spacer"></span>
+  <button routerLink="" mat-button>Home</button> 
+  <button routerLink="" mat-button>Input</button>
+  <button routerLink="" mat-button>Autocomplete</button>
+  <a href="https://www.youtube.com/channel/UCsbmVmB_or8sVLLEq4XhE_A/join" mat-raised-button color="accent">Join Us</a>
+  <button (click)="badgevisibility()"  mat-icon-button>
+      <mat-icon matBadgeColor="accent" matBadge="15" [matBadgeHidden]="badgevisible" matBadgeSize="small">notifications</mat-icon>
+  </button>
+</mat-toolbar>
 
 
-<!-- Off canvas -->
-<div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel" [ngStyle]="{ 'background-color': 'Snow' }">
-  <!-- OffCanvas Header -->
-  <div class="offcanvas-header">
-    <h1 class="offcanvas-title" id="offcanvasExampleLabel">Welcome  {{userDetails.firstName}}</h1>
-    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-  </div>
-  <!-- OffCAnvas Body -->
-  <div class="offcanvas-body">
-    <div class="dropdown mt-3">
-      <hr><hr>
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        <li class="nav-item">
-          <a class="nav-link" routerLink="/profile">My Profile</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" routerLink="/statistics">Statistics</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" routerLink="/myRequests">My Requests</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" routerLink="/approveRequests">Approve Requests</a>
-        </li>
-        <li class="nav-item">
-          <button type="button" class="btn btn-danger" (click)="logout()">LOGOUT</button>
-        </li>    
-      </ul>
-    </div>
-  </div>
-</div>
+<mat-drawer-container autosize>
+  <mat-drawer #drawer opened="true" mode="side" position="start">
+  <mat-nav-list>
+      <mat-list-item>
+          <button routerLink="card" mat-button><mat-icon>dashboard</mat-icon> Dashboard</button>
+      </mat-list-item>
+      <mat-list-item>
+          <button routerLink="" mat-button><mat-icon>home</mat-icon> Home</button>
+      </mat-list-item>
+      <mat-list-item>
+          <button routerLink="slider" mat-button><mat-icon>explore</mat-icon> Slider</button>
+      </mat-list-item>
+      <mat-list-item>
+          <button routerLink="table" mat-button><mat-icon>table</mat-icon> Table</button>
+      </mat-list-item>
+      <mat-list-item>
+          <button mat-button><mat-icon>settings</mat-icon> Settings</button>
+      </mat-list-item>
+      <mat-list-item>
+          <button mat-button><mat-icon>help</mat-icon> Help</button>
+      </mat-list-item>
+      <mat-list-item>
+          <button mat-button><mat-icon>analytics</mat-icon> analytics</button>
+      </mat-list-item>
+  </mat-nav-list>
+  </mat-drawer>
+  <mat-drawer-content>
+      <div style="text-align: center;min-height: 600px;">
 
-
+          <router-outlet></router-outlet>
+          </div>
+  </mat-drawer-content>
+</mat-drawer-container>

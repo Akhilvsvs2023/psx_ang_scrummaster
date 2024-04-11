@@ -23,4 +23,9 @@ export class NavbarComponent {
     sessionStorage.clear();
     this.router.navigate(['/login']);
   }
+
+  badgevisible = false;
+  badgevisibility() {
+    this.badgevisible = true;
+  }
 }
