@@ -10,6 +10,7 @@ import { IUserDetails } from 'src/app/model/userDetails.model';
 export class NavbarComponent {
   userDetails !:IUserDetails;
   currentDate!: Date;
+  isHovered: boolean = false;
 
   constructor(private router:Router){
     setInterval(() => {
