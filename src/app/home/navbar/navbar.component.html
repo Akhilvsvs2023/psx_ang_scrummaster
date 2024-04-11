@@ -1,49 +1,51 @@
+<!-- Top Navbar begin -->
 <mat-toolbar color="primary" class="mat-elevation-z8">
-  <button (click)="drawer.toggle()" mat-icon-button>
+  <span>
+    <button (click)="drawer.toggle()" mat-icon-button>
       <mat-icon>menu</mat-icon>
-  </button>
-  <span>ScrumMaster</span>
-  <span class="example-spacer"></span>
-  <button routerLink="" mat-button>Home</button> 
-  <button routerLink="" mat-button>Input</button>
-  <button routerLink="" mat-button>Autocomplete</button>
-  <a href="https://www.youtube.com/channel/UCsbmVmB_or8sVLLEq4XhE_A/join" mat-raised-button color="accent">Join Us</a>
+    </button>
+  </span>
+  <span><h1>ScrumMaster</h1></span>
+  <div class="spacer"></div>
+  <button routerLink="" mat-button>{{currentDate | date:"MMM dd,  hh:mm a" }}</button>
+  
   <button (click)="badgevisibility()"  mat-icon-button>
       <mat-icon matBadgeColor="accent" matBadge="15" [matBadgeHidden]="badgevisible" matBadgeSize="small">notifications</mat-icon>
   </button>
 </mat-toolbar>
+<!-- Top Navbar ends -->
 
-
+<!-- Side Menubar starts -->
 <mat-drawer-container autosize>
-  <mat-drawer #drawer opened="true" mode="side" position="start">
-  <mat-nav-list>
-      <mat-list-item>
-          <button routerLink="card" mat-button><mat-icon>dashboard</mat-icon> Dashboard</button>
-      </mat-list-item>
-      <mat-list-item>
-          <button routerLink="" mat-button><mat-icon>home</mat-icon> Home</button>
-      </mat-list-item>
-      <mat-list-item>
-          <button routerLink="slider" mat-button><mat-icon>explore</mat-icon> Slider</button>
-      </mat-list-item>
-      <mat-list-item>
-          <button routerLink="table" mat-button><mat-icon>table</mat-icon> Table</button>
-      </mat-list-item>
-      <mat-list-item>
-          <button mat-button><mat-icon>settings</mat-icon> Settings</button>
-      </mat-list-item>
-      <mat-list-item>
-          <button mat-button><mat-icon>help</mat-icon> Help</button>
-      </mat-list-item>
-      <mat-list-item>
-          <button mat-button><mat-icon>analytics</mat-icon> analytics</button>
-      </mat-list-item>
-  </mat-nav-list>
-  </mat-drawer>
-  <mat-drawer-content>
-      <div style="text-align: center;min-height: 600px;">
-
-          <router-outlet></router-outlet>
-          </div>
-  </mat-drawer-content>
+    <mat-drawer #drawer opened="true" mode="side" position="start">
+        <mat-nav-list>
+            <mat-list-item>
+                <button routerLink="" mat-button><mat-icon>home</mat-icon> Home</button>
+            </mat-list-item>  
+            <mat-list-item>
+                <button routerLink="card" mat-button><mat-icon>dashboard</mat-icon> Dashboard</button>
+            </mat-list-item>
+            <mat-list-item>
+                <button routerLink="slider" mat-button><mat-icon>explore</mat-icon> Slider</button>
+            </mat-list-item>
+            <mat-list-item>
+                <button routerLink="table" mat-button><mat-icon>table</mat-icon> Table</button>
+            </mat-list-item>
+            <mat-list-item>
+                <button mat-button><mat-icon>settings</mat-icon> Settings</button>
+            </mat-list-item>
+            <mat-list-item>
+                <button mat-button><mat-icon>help</mat-icon> Help</button>
+            </mat-list-item>
+            <mat-list-item>
+                <button mat-button><mat-icon>analytics</mat-icon> analytics</button>
+            </mat-list-item>
+        </mat-nav-list>
+    </mat-drawer>
+    <mat-drawer-content>
+        <div style="text-align: center;min-height: 600px;">
+            <router-outlet></router-outlet>
+        </div>
+    </mat-drawer-content>
 </mat-drawer-container>
+<!-- Side MenuBar ends -->
