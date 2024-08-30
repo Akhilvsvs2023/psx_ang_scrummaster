@@ -11,6 +11,8 @@ export class NavbarComponent {
   userDetails !:IUserDetails;
   currentDate!: Date;
   isHovered: boolean = false;
+  showTask: boolean = false;
+  showRequest: boolean = false;
 
   constructor(private router:Router){
     setInterval(() => {
@@ -29,4 +31,12 @@ export class NavbarComponent {
   badgevisibility() {
     this.badgevisible = true;
   }
+  showMenu(menu:number):void{
+    if(menu===1){
+      this.showTask=!this.showTask;
+    }else if(menu===2){
+      this.showRequest=!this.showRequest;
+    }
+  }
+  
 }

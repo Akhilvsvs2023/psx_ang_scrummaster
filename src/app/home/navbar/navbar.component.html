@@ -39,16 +39,31 @@
                 <button routerLink="/" mat-button><mat-icon>home</mat-icon> Home</button>
             </mat-list-item>
             <mat-list-item>
-                <button routerLink="/profile" mat-button><mat-icon>groups</mat-icon> Team</button>
+                <button  routerLink="/profile" mat-button><mat-icon>groups</mat-icon> Team</button>
             </mat-list-item>
-            <mat-list-item>
-                <button mat-button><mat-icon>add_task</mat-icon> Tasks</button>
-            </mat-list-item>  
             <mat-list-item>
                 <button routerLink="/dashBoard" mat-button><mat-icon>dashboard</mat-icon> Dashboard</button>
             </mat-list-item>
             <mat-list-item>
-                <button mat-button><mat-icon>analytics</mat-icon> analytics</button>
+                <button routerLink="/statistics" mat-button><mat-icon>analytics</mat-icon> Statistics</button>
+            </mat-list-item>
+            <mat-list-item>
+                <button (click)=showMenu(1) mat-button><b>Tasks</b><mat-icon *ngIf="!showTask">arrow_drop_down</mat-icon><mat-icon *ngIf="showTask">arrow_drop_up</mat-icon></button>
+            </mat-list-item>
+            <mat-list-item *ngIf="showTask">
+                <button routerLink="/createTask" mat-button><mat-icon>add_task</mat-icon>Create Task</button>
+            </mat-list-item>
+            <mat-list-item *ngIf="showTask">
+                <button routerLink="/taskList" mat-button><mat-icon>format_list_bulleted</mat-icon>TasksList</button>
+            </mat-list-item>  
+            <mat-list-item>
+                <button (click)=showMenu(2) mat-button><b>Requests</b><mat-icon *ngIf="!showRequest">arrow_drop_down</mat-icon><mat-icon *ngIf="showRequest">arrow_drop_up</mat-icon></button>
+            </mat-list-item>
+            <mat-list-item *ngIf="showRequest">
+                <button routerLink="/myRequests" mat-button><mat-icon>pending_actions</mat-icon>My Requests</button>
+            </mat-list-item>
+            <mat-list-item *ngIf="showRequest">
+                <button routerLink="/approveRequests" mat-button><mat-icon>domain_verification</mat-icon>Approve Requests</button>
             </mat-list-item>            
             <mat-list-item>
                 <button mat-button><mat-icon>settings</mat-icon> Settings</button>
