@@ -9,9 +9,9 @@ import { TaskListComponent } from './home/task-list/task-list.component';
 import { StatisticsComponent } from './home/statistics/statistics.component';
 import { TokenGuard } from './services/tokenGaurd.service';
 import { ProfileComponent } from './home/profile/profile.component';
-import { ApproveRequestsComponent } from './home/approve-requests/approve-requests.component';
-import { RequestsComponent } from './home/requests/requests.component';
+import { ApproveRequestsComponent } from './home/Request/approve-requests/approve-requests.component';
 import { DashboardComponent } from './home/dashboard/dashboard.component';
+import { MyRequestsComponent } from './home/Request/my-requests/my-requests.component';
 
 const routes: Routes = [
   {path:"login", component:LoginComponent},
@@ -22,7 +22,7 @@ const routes: Routes = [
     {path:"taskList", component:TaskListComponent},
     {path:"statistics", component:StatisticsComponent},
     {path:"profile", component:ProfileComponent},
-    {path:"myRequests", component:RequestsComponent},
+    {path:"myRequests", component:MyRequestsComponent},
     {path:"approveRequests", component:ApproveRequestsComponent}
   ]},
   {path:"**", component:ErrorComponent},

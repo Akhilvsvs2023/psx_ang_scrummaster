@@ -37,10 +37,10 @@ import { CreateUserformComponent } from './create-user/create-userform/create-us
 import { ToastrModule } from 'ngx-toastr';
 import { TokenGuard } from './services/tokenGaurd.service';
 import { ProfileComponent } from './home/profile/profile.component';
-import { ApproveRequestsComponent } from './home/approve-requests/approve-requests.component';
-import { RequestsComponent } from './home/requests/requests.component';
+import { ApproveRequestsComponent } from './home/Request/approve-requests/approve-requests.component';
 import { DashboardComponent } from './home/dashboard/dashboard.component';
-import {MatMenuModule} from '@angular/material/menu'; 
+import {MatMenuModule} from '@angular/material/menu';
+import { MyRequestsComponent } from './home/Request/my-requests/my-requests.component';
 // import { TokenInterceptor } from './services/token.interceptor';
 
 @NgModule({
@@ -59,8 +59,8 @@ import {MatMenuModule} from '@angular/material/menu';
     CreateUserformComponent,
     ProfileComponent,
     ApproveRequestsComponent,
-    RequestsComponent,
-    DashboardComponent
+    DashboardComponent,
+    MyRequestsComponent,
   ],
   imports: [
     NgbModule,

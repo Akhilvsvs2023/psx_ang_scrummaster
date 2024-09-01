@@ -18,7 +18,6 @@
     </button>
 </span>
 </mat-toolbar>
-<!-- Top Navbar ends -->
 
 <!-- LogOut popover -->
 <ng-template #popoverContent>
@@ -37,9 +36,6 @@
         <mat-nav-list>
             <mat-list-item>
                 <button routerLink="/" mat-button><mat-icon>home</mat-icon> Home</button>
-            </mat-list-item>
-            <mat-list-item>
-                <button  routerLink="/profile" mat-button><mat-icon>groups</mat-icon> Team</button>
             </mat-list-item>
             <mat-list-item>
                 <button routerLink="/dashBoard" mat-button><mat-icon>dashboard</mat-icon> Dashboard</button>
@@ -64,6 +60,9 @@
             </mat-list-item>
             <mat-list-item *ngIf="showRequest">
                 <button routerLink="/approveRequests" mat-button><mat-icon>domain_verification</mat-icon>Approve Requests</button>
+            </mat-list-item>
+            <mat-list-item>
+                <button  routerLink="/profile" mat-button><mat-icon>groups</mat-icon>Team</button>
             </mat-list-item>            
             <mat-list-item>
                 <button mat-button><mat-icon>settings</mat-icon> Settings</button>
@@ -79,4 +78,3 @@
         </div>
     </mat-drawer-content>
 </mat-drawer-container>
-<!-- Side MenuBar ends -->
