@@ -34,6 +34,7 @@ export class LoginFormComponent implements OnInit {
         window.sessionStorage.setItem('token',response.jwtToken);
         window.sessionStorage.setItem('username',response.userDetails.username);
         window.sessionStorage.setItem('userDetails',JSON.stringify(response.userDetails));
+        window.sessionStorage.setItem('level',response.level)
         this.router.navigate(['/']);
         this.toaster.callSuccessToaster('SUCCESS',response.message);
       }

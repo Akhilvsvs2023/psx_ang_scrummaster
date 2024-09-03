@@ -32,6 +32,7 @@
                 <div class="col-sm-5">
                     <label for="departmentName" class="form-label" class="form-label">Department Name</label>
                     <select name="departmentName" class="form-control"  id="departmentName" formControlName="departmentName" placeholder="---select department---" required [ngClass]="{'is-invalid' : formGroup.controls.departmentName.touched && formGroup.controls.departmentName.errors}">
+                        <option value="Product">Pillars</option>
                         <option value="Product">Product</option>
                         <option value="Testing">Testing</option>
                         <option value="Database">Database</option>
@@ -48,11 +49,13 @@
                 <div class="col-sm-7">
                     <label for="role" class="form-label" class="form-label">Designation</label>
                     <select name="role" class="form-control"  id="role" formControlName="role" placeholder="---select role---" required [ngClass]="{'is-invalid' : formGroup.controls.role.touched && formGroup.controls.role.errors}">
-                        <option value="Project Manager">Project Manager</option>
-                        <option value="Senior Software Engineer">Senior Software Engineer</option>
-                        <option value="Software Engineer">Software Engineer</option>
-                        <option value="Associate Software Engineer">Associate Software Engineer</option>
-                        <option value="Trainee">Trainee</option>
+                        <option value="Founders">Founders(L1)</option>
+                        <option value="Vice President">Vice President(L2)</option>
+                        <option value="Manager">Manager(L3)</option>
+                        <option value="Senior Software Engineer">Senior Software Engineer(L4)</option>
+                        <option value="Software Engineer">Software Engineer(L5)</option>
+                        <option value="Associate Software Engineer">Associate Software Engineer(L6)</option>
+                        <option value="Trainee">Trainee(L7)</option>
                     </select>
                     <div class="invalid-feedback" *ngIf="formGroup.controls.role.touched && formGroup.controls.role.errors">
                         <p>Please select role</p>
@@ -83,7 +86,7 @@
                     <label for="reportingTo" class="form-label">Reporting to</label>
                     <input type="text" class="form-control" id="reportingTo" formControlName="reportingTo" required [ngClass]="{'is-invalid' : formGroup.controls.reportingTo.touched && formGroup.controls.reportingTo.errors} ">
                     <div class="invalid-feedback" *ngIf="formGroup.controls.reportingTo.touched && formGroup.controls.reportingTo.errors">
-                        <p *ngIf="formGroup.controls.reportingTo.errors.required">Please enter ID of your manager</p>
+                        <p *ngIf="formGroup.controls.reportingTo.errors.required">Please enter reporting ID</p>
                         <p *ngIf="formGroup.controls.reportingTo.errors.pattern">Invalid ID</p>
                     </div>  
                 </div>

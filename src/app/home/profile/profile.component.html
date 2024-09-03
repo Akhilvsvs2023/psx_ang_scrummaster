@@ -59,6 +59,30 @@
         <h1>Team Members</h1>
     </div>
     <div class="container-fluid  shadow-sm rounded p-5">
+        <!-- Vice President -->
+        <div class="row">
+            <h2>Vice President</h2>
+        </div>     
+        <div class="row" *ngIf="teamMembers.vp.length > 0">
+            <div class="col-md-4" *ngFor="let member of teamMembers.vp">
+                <div class="card m-2">
+                    <div class="card-header">
+                        <h3 class="card-subtitle mb-2 "><b>{{member.empId}}</b></h3>
+                    </div>
+                    <div class="card-body">
+                        <p class="card-text"><b>Employee Name :</b> {{member.firstName}}
+                            {{member.lastName}}</p>
+                        <p class="card-text"><b>Gender :</b> {{member.gender}}</p>
+                        <p class="card-text"><b>Email :</b> {{member.emailId}}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div *ngIf="teamMembers.vp.length==0" class="container-fluid  bg-opacity-75 p-3">
+            <div class="row p-3">
+                <h1 class="opacity-25 text-center"><p>Currently No Vice President</p></h1>
+            </div>
+        </div>
         <!-- Project Manager -->
         <div class="row">
             <h2>Project Managers</h2>

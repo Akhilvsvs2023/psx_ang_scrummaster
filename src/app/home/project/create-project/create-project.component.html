@@ -1,0 +1,45 @@
+<div class="container bg-light shadow-sm rounded p-3">
+    <div class="row">
+        <div class="col-sm-11">
+            <h1>Create Project</h1>
+        </div>
+        <div class="col-sm-1">
+            <button mat-mini-fab color="warn" (click)="closeDialog()"><mat-icon>close</mat-icon></button>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-12">
+            <form [formGroup]="formGroup" (ngSubmit)="onSubmit(formGroup.value)" >
+                <div class="row my-2">
+                    <mat-form-field appearance="outline">
+                        <mat-label>Project Name</mat-label>
+                        <input matInput formControlName="projectName" required >
+                        <mat-icon matSuffix>code</mat-icon>
+                    </mat-form-field>
+                </div>
+                <div class="row my-2">
+                    <mat-form-field appearance="outline">
+                        <mat-label>Textarea</mat-label>
+                        <textarea matInput placeholder="Enter Project Description" formControlName="description"></textarea>
+                      </mat-form-field>
+                </div>
+                <div class="row my-1">
+                    <h4>Select members for project :</h4>
+                </div>
+                <div *ngFor="let reportee of reportees; let i=index">
+                    <div class="form-check">
+                        <label class="form-check-label" for="flexCheckDefault">
+                            <input class="form-check-input" type="checkbox" name="flexCheckDefault" id="flexCheckDefault" value={{reportee.empId}} (change)="handleProjectMembers($event)">
+                            {{reportee.firstName}} {{reportee.lastName}}
+                        </label>
+                    </div>
+                </div>
+                <div class="row my-2 text-center">
+                    <div class="col-md-12">
+                        <button class="btn btn-success" [disabled]="!formGroup.valid">Create</button><br>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

@@ -41,6 +41,8 @@ import { ApproveRequestsComponent } from './home/Request/approve-requests/approv
 import { DashboardComponent } from './home/dashboard/dashboard.component';
 import {MatMenuModule} from '@angular/material/menu';
 import { MyRequestsComponent } from './home/Request/my-requests/my-requests.component';
+import { ProjectComponent } from './home/project/project.component';
+import { CreateProjectComponent } from './home/project/create-project/create-project.component';
 // import { TokenInterceptor } from './services/token.interceptor';
 
 @NgModule({
@@ -61,6 +63,8 @@ import { MyRequestsComponent } from './home/Request/my-requests/my-requests.comp
     ApproveRequestsComponent,
     DashboardComponent,
     MyRequestsComponent,
+    ProjectComponent,
+    CreateProjectComponent,
   ],
   imports: [
     NgbModule,

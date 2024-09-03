@@ -12,12 +12,14 @@ import { ProfileComponent } from './home/profile/profile.component';
 import { ApproveRequestsComponent } from './home/Request/approve-requests/approve-requests.component';
 import { DashboardComponent } from './home/dashboard/dashboard.component';
 import { MyRequestsComponent } from './home/Request/my-requests/my-requests.component';
+import { ProjectComponent } from './home/project/project.component';
 
 const routes: Routes = [
   {path:"login", component:LoginComponent},
   {path:"createUser", component:CreateUserComponent},
   {path:"", component:HomeComponent,canActivate:[TokenGuard],canActivateChild:[TokenGuard],children:[
     {path:"dashBoard", component:DashboardComponent},
+    {path:"project", component:ProjectComponent},
     {path:"createTask", component:CreateTaskComponent},
     {path:"taskList", component:TaskListComponent},
     {path:"statistics", component:StatisticsComponent},

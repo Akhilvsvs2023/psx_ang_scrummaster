@@ -26,6 +26,7 @@ export class ProfileComponent implements OnInit{
       gender:null
     };
     this.teamMembers={
+      vp:[],
       pm:[],
       sse:[],
       se:[],
