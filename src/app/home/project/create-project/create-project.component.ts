@@ -72,6 +72,7 @@ export class CreateProjectComponent implements OnInit{
         this.formGroup.reset();
         this.closeDialog();
         this.toaster.callSuccessToaster('SUCCESS',response.message);
+        this.router.navigate(['/project']);
       }
       else{
         this.toaster.callErrorToaster('ERROR',response.message);

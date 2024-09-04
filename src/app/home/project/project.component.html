@@ -12,15 +12,10 @@
     <div class="row m-1">
         <div class="col-sm-4" *ngFor="let project of myProjects">
             <div >
-                <mat-card class="example-card" appearance="outlined">
-                    <mat-card-header>
-                      <mat-card-title-group>
-                        <mat-card-title>{{project.projectName}}</mat-card-title>
-                        <mat-card-subtitle>id : {{project.projectId}}</mat-card-subtitle>
-                      </mat-card-title-group>
-                    </mat-card-header>
-                    <mat-card-content><hr>{{project.description}}</mat-card-content>
-                </mat-card>
+                <div class="card card-1">
+                    <h3>{{project.projectName}}</h3>
+                    <p>{{project.description}}</p>
+                  </div>
             </div>
         </div>
     </div>
