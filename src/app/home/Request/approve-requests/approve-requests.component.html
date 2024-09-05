@@ -40,7 +40,7 @@
 <ng-template #approve let-modal>
     <div class="modal-header">
         <h1 class="modal-title">Approve User</h1>
-        <button mat-mini-fab (click)="modal.dismiss('Cross click')" color="Error"><mat-icon>close</mat-icon></button>
+        <button mat-mini-fab (click)="modal.dismiss('Cross click')" color="warn"><mat-icon>close</mat-icon></button>
     </div>
     <div class="modal-body">
         <textarea [(ngModel)]="approveReason" class="form-control" rows="4" placeholder="Write reason..."></textarea>
